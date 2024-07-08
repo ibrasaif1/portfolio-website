@@ -21,7 +21,7 @@ export default function Home() {
               className="object-cover"
             />
           </div>
-          <div className="text-center md:text-left md:ml-6 space-y-4 tracking-wider">
+          <div className="text-center md:text-left md:ml-6 space-y-4">
             <p className="text-lg">
               Hello! My name is Ibrahim Saifullah, and I recently graduated Magna Cum Laude with
               a degree in Computer Science.

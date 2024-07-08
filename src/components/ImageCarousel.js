@@ -14,7 +14,7 @@ const ImageCarousel = ({ images, caption }) => {
                 <CarouselContent>
                     {images.map((image, index) => (
                         <CarouselItem key={index} className="relative">
-                            <Image src={image.src} alt={image.alt} width={500} height={500} className="object-cover" loading="lazy"/>
+                            <Image src={image.src} alt={image.alt} width={500} height={500} className="object-cover"/>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
