@@ -161,7 +161,21 @@ export default function Home() {
               caption="Million Layer Potatoes"
             />
           </div>
-
+          <div className="col-span-1">
+            <ImageCarousel
+              images={[
+                { src: '/cooking/Shakshuka/s1.jpg', alt: 'Shakshuka 1' },
+                { src: '/cooking/Shakshuka/s2.jpg', alt: 'Shakshuka 2' },
+                { src: '/cooking/Shakshuka/s3.jpg', alt: 'Shakshuka 3' },
+                { src: '/cooking/Shakshuka/s4.jpg', alt: 'Shakshuka 4' },
+                { src: '/cooking/Shakshuka/s5.jpg', alt: 'Shakshuka 5' },
+                { src: '/cooking/Shakshuka/s6.jpg', alt: 'Shakshuka 6' },
+                { src: '/cooking/Shakshuka/s7.jpg', alt: 'Shakshuka 7' },
+                { src: '/cooking/Shakshuka/s8.jpg', alt: 'Shakshuka 8' },
+              ]}
+              caption="Shakshuka"
+            />
+          </div>
           <div className="col-span-1 rounded-lg border border-gray-300 overflow-hidden shadow-lg">
               <Image
                 src="/cooking/spicy-fried-chicken.jpg"
@@ -171,16 +185,6 @@ export default function Home() {
                 className="object-cover"
               />
               <div className="caption p-2 text-center text-lg">Spicy Fried Chicken</div>
-          </div>
-          <div className="col-span-1 rounded-lg border border-gray-300 overflow-hidden shadow-lg">
-              <Image
-                src="/cooking/Marry Me Chicken Pasta.jpg"
-                alt="Marry Me Chicken Pasta"
-                width={500}
-                height={500}
-                className="object-cover"
-              />
-              <div className="caption p-2 text-center text-lg">Marry Me Chicken Pasta</div>
           </div>
         </div>
       </section>
