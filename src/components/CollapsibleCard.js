@@ -38,7 +38,7 @@ const CollapsibleCard = ({ company, role, description, skills = [] }) => {
   
   return (
     <div className="my-4">
-      <Card className="cursor-pointer">
+      <Card className="cursor-pointer bg-sky-100">
         <div
           className="flex justify-between items-center"
           onClick={handleToggle}

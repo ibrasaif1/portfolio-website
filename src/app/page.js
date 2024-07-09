@@ -200,7 +200,7 @@ export default function Home() {
                 height={500}
                 className="object-cover"
               />
-              <div className="caption p-2 text-center text-lg bg-white">Spicy Fried Chicken</div>
+              <div className="caption p-2 text-center text-lg bg-sky-100">Spicy Fried Chicken</div>
           </div>
           <div className="col-span-1 rounded-lg border border-gray-300 overflow-hidden shadow-lg">
               <Image
@@ -210,7 +210,7 @@ export default function Home() {
                 height={500}
                 className="object-cover"
               />
-              <div className="caption p-2 text-center text-lg bg-white">Smashburger</div>
+              <div className="caption p-2 text-center text-lg bg-sky-100">Smashburger</div>
           </div>
         </div>
       </section>

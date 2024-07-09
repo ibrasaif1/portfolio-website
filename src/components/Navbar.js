@@ -6,7 +6,7 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 bg-white shadow-md z-50">
+    <nav className="sticky top-0 bg-sky-100 shadow-md z-50">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="text-2xl font-bold">
           <Link href="#about" className="cursor-pointer">
