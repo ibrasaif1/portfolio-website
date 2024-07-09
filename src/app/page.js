@@ -76,12 +76,16 @@ export default function Home() {
           company="Freezer Pallet Drone Inspection"
           role="Ruiz Foods"
           description={`
-            I worked with Ruiz Foods for my senior project as part of my CS degree. Ruiz Foods sells frozen Mexican food under the El Monterey brand in grocery stores and under the Tornados brand to convenience stores for their roller grills.
-            Ruiz Foods stores pallets of products and ingredients in large frozen warehouses throughout the country. These warehouses are very high, with up to 6 levels of pallets, and very cold, at -10°F.
+            Ruiz Foods sells frozen Mexican food under the El Monterey brand in grocery stores and under the Tornados brand to convenience stores for their roller grills.
+            They store pallets of products and ingredients in large, frozen warehouses at -10°F and heights up to 50 feet.
             Sometimes, pallets aren't placed perfectly, and they tip. A tipped pallet can end up falling over which causes product loss, time loss to fix it, and even potentially injury.
-            To address this problem, Ruiz Foods wanted to implement a drone solution, with the vision that it would fly around, taking pictures of each pallet location, and uploading these pictures to an interface along with the risk level of that pallet based on an ML model.
-            My group doesn't have any experience with drones so this wasn't in the scope of our project. It will be Phase 2 for another group to complete.
-            In this project, I served as Point-of-Contact from the group to the company representatives and I developed the React web app to serve as the interface. I also developed and deployed a PostgreSQL database on AWS RDS, and created REST API endpoints in Node.js with Express to display database data on the website. 
+            To address this problem, Ruiz Foods wanted to implement a solution involving a drone that would fly to and upload a picture of each pallet location.
+            The drone part was left out of our scope, to be completed in another phase. My group focused on creating an interface and ML model to deduce whether a picture of a pallet was deemed risky or not.
+            To complete this project, I:
+            • Served as Point-of-Contact with company representatives to translate business needs into app features
+            • Developed React web app for interface
+            • Deployed PostgreSQL database on AWS RDS
+            • Created REST API endpoints with Node.js and Express
             `}
           skills={["React.js", "Node.js", "Express", "REST APIs", "PostgreSQL"]}
         />
