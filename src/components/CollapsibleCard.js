@@ -33,6 +33,9 @@ const CollapsibleCard = ({ company, role, description, skills = [] }) => {
     }
   }, [isOpen]);
 
+  const formattedDescription = description.replace(/\n/g, '<br />').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+
+  
   return (
     <div className="my-4">
       <Card className="cursor-pointer">

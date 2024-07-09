@@ -21,7 +21,7 @@ const ImageCarousel = ({ images, caption }) => {
                 <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2"/>
                 <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2"/>
             </ShadcnCarousel>
-            {caption && <div className="caption p-2 text-center text-lg">{caption}</div>}
+            {caption && <div className="caption p-2 text-center text-lg bg-white">{caption}</div>}
         </div>
     );
 };

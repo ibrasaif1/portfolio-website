@@ -43,13 +43,13 @@ export default function Home() {
           company="Foundation Medicine"
           role="Software Engineer Intern"
           description={`
-            At Foundation Medicine, my time was split into work with the EMR Integrations team and work with the tech intern team.\n\n
-
-            Foundation Medicine conducts genomic profiling tests, giving patients and doctors detailed insights into the genetic makeup of cancers. This enables more precise and targeted treatment options, which can improve treatment efficacy and potentially extend patient life expectancies.\n
-
-            The EMR Integrations team at Foundation Medicine is responsible for facilitating genomic profiling test orders through hospital software like Epic, Ellkay, and more. They use Kafka to enable real-time, reliable, and scalable transmission between the company and hospitals for these test orders.
-
-            With the EMR Integrations team, I completed tickets to add features or fix bugs in our codebase. With each change I made, I updated or added unit tests to ensure that my changes were thoroughly validated. These tests were then ran by Jenkins in our CI/CD pipeline to ensure the stability of the codebase. I also added Node.js scripts to our codebase to speed up some developer processes like decoding and encoding base64. \n
+            Foundation Medicine conducts genomic profiling tests, which gives doctors and patients detailed insights into the genetic makeup of their cancer. 
+            They can use these insights for more targeted, rather than general, treatment options. 
+            Here, I worked on the EMR Integrations team. We were responsible for the test ordering system on hospital software, which was enabled by Kafka.
+            My duties included:
+            • Completing tickets add features or fix bugs in our JavaScript codebase
+            • Add unit tests to be ran by Jenkins in CI/CD pipeline to ensure that my changes were thoroughly validated
+            • Program Node.js scripts to speed up developer processes, like encoding/decoding base64 all on the CLI
             `}
           skills={["JavaScript", "Node.js", "Unit Testing", "Jenkins", "Kafka", "Git"]}
         />
@@ -188,7 +188,7 @@ export default function Home() {
                 height={500}
                 className="object-cover"
               />
-              <div className="caption p-2 text-center text-lg">Spicy Fried Chicken</div>
+              <div className="caption p-2 text-center text-lg bg-white">Spicy Fried Chicken</div>
           </div>
         </div>
       </section>
