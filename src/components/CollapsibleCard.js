@@ -48,7 +48,7 @@ const CollapsibleCard = ({ company, role, description, skills = [] }) => {
             <CardDescription>{role}</CardDescription>
             <div className="flex flex-wrap gap-2 mt-2">
               {skills.map((skill, index) => (
-                <span key={index} className="bg-gray-200 text-gray-800 text-xs font-semibold px-2 py-1 rounded">
+                <span key={index} className="bg-white text-gray-800 text-xs font-semibold px-2 py-1 rounded">
                   {skill}
                 </span>
               ))}

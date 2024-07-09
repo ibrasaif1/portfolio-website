@@ -58,9 +58,13 @@ export default function Home() {
           company="Principal Financial Group"
           role="Software Engineer Intern"
           description={`
-            At Principal Financial Group, I worked on the Insider Risk team. I was tasked with completing a summer project to notify the Security Operations Center of any potential bad actors within the company.
-            To solve this problem, I came up with an AWS architecture that used a Python Lambda with an SQL query identifying suspicious behavior by employees. I used API Gateway and Route 53 to name the endpoint so the SOC could call it and be given these people.
-            We also had a brief intern hackathon within the company, in which I collaborated with a group to create a React website hosted on AWS Amplify with Cognito authentication for non-engineering employees to post engineering problems they had so that company engineers can solve them.
+            I worked on the Insider Risk team, tasked with completing a summer project to notify our Security Operations Center of potential bad actors within the company.
+            To do this, I created an AWS architecture that:
+            • Used a Python Lambda with an SQL query filtering employees by seemingly suspicious behavior (like mass downloading sensitive documents to a USB)
+            • Deployed API Gateway to call this Lambda and send response to SOC
+            We also had a brief intern hackathon within the company, in which I:
+            • Collaborated with a group to create a React website for non-engineering employees to post engineering problems they had so that company engineers can solve them
+            • Hosted this website on AWS Amplify with Cognito authentication
             `}
           skills={["Python", "AWS", "React.js"]}
         />
