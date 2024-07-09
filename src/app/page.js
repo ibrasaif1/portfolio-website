@@ -78,7 +78,7 @@ export default function Home() {
             My group doesn't have any experience with drones so this wasn't in the scope of our project. It will be Phase 2 for another group to complete.
             In this project, I served as Point-of-Contact from the group to the company representatives and I developed the React web app to serve as the interface. I also developed and deployed a PostgreSQL database on AWS RDS, and created REST API endpoints in Node.js with Express to display database data on the website. 
             `}
-          skills={["Full Stack Development", "React.js", "Node.js", "Express", "REST APIs", "PostgreSQL"]}
+          skills={["React.js", "Node.js", "Express", "REST APIs", "PostgreSQL"]}
         />
         <CollapsibleCard
           id="lyric-learner"
