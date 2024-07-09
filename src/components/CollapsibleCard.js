@@ -64,7 +64,7 @@ const CollapsibleCard = ({ company, role, description, skills = [] }) => {
           style={{ maxHeight: maxHeight }}
           className={`transition-max-height duration-300 ease-in-out overflow-hidden`}
         >
-          <CardContent className="pb-4 text-base leading-relaxed text-gray-800">
+          <CardContent className="pb-4 text-base leading-loose text-gray-800">
             {description.split('\n').map((line, index) => (
                 <p key={index}>{line}</p>
             ))}

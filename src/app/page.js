@@ -42,10 +42,13 @@ export default function Home() {
           company="Foundation Medicine"
           role="Software Engineer Intern"
           description={`
-            At Foundation Medicine, my time was split into work with the EMR Integrations team and work with the tech intern team.\n
+            At Foundation Medicine, my time was split into work with the EMR Integrations team and work with the tech intern team.\n\n
+
             Foundation Medicine conducts genomic profiling tests, giving patients and doctors detailed insights into the genetic makeup of cancers. This enables more precise and targeted treatment options, which can improve treatment efficacy and potentially extend patient life expectancies.\n
-            The EMR Integrations team at Foundation Medicine is responsible for facilitating genomic profiling test orders through hospital software like Epic, Ellkay, and more.
-            With the EMR Integrations team, I completed tickets to add features or fix bugs in our codebase. With each change I made, I updated or added unit tests to ensure that my changes were thoroughly validated. I also added Node.js scripts to our codebase to speed up some developer processes like decoding and encoding base64, and _. \n
+
+            The EMR Integrations team at Foundation Medicine is responsible for facilitating genomic profiling test orders through hospital software like Epic, Ellkay, and more. They use Kafka to enable real-time, reliable, and scalable transmission between the company and hospitals for these test orders.
+
+            With the EMR Integrations team, I completed tickets to add features or fix bugs in our codebase. With each change I made, I updated or added unit tests to ensure that my changes were thoroughly validated. These tests were then ran by Jenkins in our CI/CD pipeline to ensure the stability of the codebase. I also added Node.js scripts to our codebase to speed up some developer processes like decoding and encoding base64. \n
             `}
           skills={["JavaScript", "Node.js", "Unit Testing", "Jenkins", "Kafka", "Git"]}
         />
@@ -88,7 +91,7 @@ export default function Home() {
           id="bug-watch"
           company="Bug Watch"
           role="Bug tracking website for school project"
-          description="Here, I..."
+          description="I used React to create the display for a bug tracking website and used Flask in Python to create REST API endpoints for creating or editing bug or user data."
           skills={["Flask", "REST APIs", "Python", "React.js"]}
         />
       </section>
