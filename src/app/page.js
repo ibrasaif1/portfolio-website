@@ -202,6 +202,16 @@ export default function Home() {
               />
               <div className="caption p-2 text-center text-lg bg-white">Spicy Fried Chicken</div>
           </div>
+          <div className="col-span-1 rounded-lg border border-gray-300 overflow-hidden shadow-lg">
+              <Image
+                src="/cooking/Smashburger.jpg"
+                alt="Smashburger"
+                width={500}
+                height={500}
+                className="object-cover"
+              />
+              <div className="caption p-2 text-center text-lg bg-white">Smashburger</div>
+          </div>
         </div>
       </section>
       {/* Adding blank space at the bottom */}
