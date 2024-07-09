@@ -114,6 +114,18 @@ export default function Home() {
           <div className="col-span-1">
             <ImageCarousel
               images={[
+                { src: '/cooking/Sushi/sushi1.jpg', alt: 'Sushi 1' },
+                { src: '/cooking/Sushi/sushi2.jpg', alt: 'Sushi 2' },
+                { src: '/cooking/Sushi/sushi3.jpg', alt: 'Sushi 3' },
+                { src: '/cooking/Sushi/sushi4.jpg', alt: 'Sushi 4' },
+                { src: '/cooking/Sushi/sushi5.jpg', alt: 'Sushi 5' },
+              ]}
+              caption="Sushi"
+            />
+          </div>
+          <div className="col-span-1">
+            <ImageCarousel
+              images={[
                 { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb1.jpg', alt: 'Lemon Raspberry Cheesecake Bars 1' },
                 { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb2.jpg', alt: 'Lemon Raspberry Cheesecake Bars 2' },
                 { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb3.jpg', alt: 'Lemon Raspberry Cheesecake Bars 3' },
@@ -149,7 +161,7 @@ export default function Home() {
                 { src: '/cooking/Crunchy Broccoli Fritters/cbf5.jpg', alt: 'Crunchy Broccoli Fritters 5' },
                 { src: '/cooking/Crunchy Broccoli Fritters/cbf6.jpg', alt: 'Crunchy Broccoli Fritters 6' },
               ]}
-              caption="Crunchy Broccoli Fritters"
+              caption="Broccoli Fritters"
             />
           </div>
           <div className="col-span-1">
