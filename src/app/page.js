@@ -12,27 +12,32 @@ export default function Home() {
     <div className="container mx-auto px-4">
       <section id="about" className="my-8 scroll-mt-16">
         <h2 className="text-3xl font-bold mb-6">About</h2>
-        <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
-          <div className="w-100 md:w-100 rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src="/headshot.jpg"
-              alt="Ibrahim Saifullah headshot"
-              width={500}
-              height={500}
-              className="object-cover"
-            />
-          </div>
-          <div className="text-center md:text-left md:ml-6 space-y-4">
-            <p className="text-lg">
-              Hello! My name is Ibrahim Saifullah, and I recently graduated Magna Cum Laude with
-              a degree in Computer Science.
-            </p>
-            <p className="text-lg">
-              I've completed software engineering internships at Foundation Medicine and Principal Financial Group.
-            </p>
-            <p className="text-lg">
-              I've also done a few projects. I did a senior project with Ruiz Foods as part of my coursework, I have a personal project Lyric Learner, and I worked on a simple bug tracking website in one of my courses.
-            </p>
+        <div className="bg-sky-100 rounded-lg shadow-lg overflow-hidden">
+          <div className="p-6">
+            <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+              <div className="w-64 h-64 md:w-48 md:h-auto rounded-3xl overflow-hidden shadow-lg flex-shrink-0">
+                <Image
+                  src="/headshot.jpg"
+                  alt="Ibrahim Saifullah headshot"
+                  width={200}
+                  height={200}
+                  className="object-cover w-full h-full"
+                  layout="responsive"
+                />
+              </div>
+              <div className="flex-grow space-y-4">
+                <p className="text-lg">
+                  Hello! My name is Ibrahim Saifullah, and I recently graduated Magna Cum Laude with
+                  a degree in Computer Science.
+                </p>
+                <p className="text-lg">
+                  I've completed software engineering internships at Foundation Medicine and Principal Financial Group.
+                </p>
+                <p className="text-lg">
+                  I've also done a few projects. I constructed a full-stack interface for Ruiz Foods as my senior project, I created an AI-enabled predictive artist lyric Twitter bot Lyric Learner, and I developed a React front-end and wrote Python Flask endpoints for a simple bug tracking website in one of my courses.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
