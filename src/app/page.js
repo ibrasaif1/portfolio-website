@@ -43,7 +43,7 @@ export default function Home() {
               </div>
               
               <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Key Highlights</h4>
+                <h4 className="font-semibold text-gray-800 mb-2">About Me</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>• Backend experience with microservice architecture</li>
                   <li>• Eye and passion for UI/UX design</li>
