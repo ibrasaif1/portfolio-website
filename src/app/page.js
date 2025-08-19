@@ -3,7 +3,6 @@ import CollapsibleCard from '../components/CollapsibleCard';
 import Image from 'next/image';
 import ImageCarousel from '../components/ImageCarousel'; // Import the ImageCarousel component
 import './globals.css';
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import Head from 'next/head';
 
 
