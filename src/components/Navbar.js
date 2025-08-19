@@ -6,7 +6,7 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 bg-sky-100 shadow-md z-50">
+    <nav className="sticky top-0 bg-white/80 backdrop-blur-lg border-b border-white/20 shadow-2xl z-50">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="text-2xl font-bold">
           <Link href="#about" className="cursor-pointer">
@@ -22,18 +22,6 @@ const Navbar = () => {
             >
             Resume
           </a>
-          <Link href="#about" className="hover:text-gray-700 cursor-pointer">
-            About
-          </Link>
-          <Link href="#internships" className="hover:text-gray-700 cursor-pointer">
-            Internships
-          </Link>
-          <Link href="#projects" className="hover:text-gray-700 cursor-pointer">
-            Projects
-          </Link>
-          <Link href="#cooking" className="hover:text-gray-700 cursor-pointer">
-            Cooking
-          </Link>
           {/* Add icons */}
           <a href="https://www.linkedin.com/in/ibrahimsaifullah" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700 cursor-pointer ml-4">
             <FontAwesomeIcon icon={faLinkedin} size="lg" />
