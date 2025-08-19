@@ -3,6 +3,7 @@ import CollapsibleCard from '../components/CollapsibleCard';
 import Image from 'next/image';
 import ImageCarousel from '../components/ImageCarousel'; // Import the ImageCarousel component
 import './globals.css';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Head from 'next/head';
 
 
@@ -76,9 +77,9 @@ export default function Home() {
           id="pushnami"
           company="Pushnami"
           role="Software Engineer"
-          description={`
-            
-            `}
+          description={`• Built Node.js and Golang backend features in microservice architecture to improve user-to-offer matching algorithms and enable self-service business operations
+• Increased revenue per visit by 20%+ and improved user progression rates through React.js frontend UX enhancements
+• Implemented infrastructure as code using Terraform, created CI/CD pipelines, configured Kubernetes deployments, and implemented monitoring/alerts for system reliability`}
           skills={["Go", "React.js", "Node.js", "Terraform", "CI/CD", "NoSQL", "SQL", "AWS"]}
         />
       </section>

@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
   title: 'Ibrahim Saifullah',
   icons: {
-    icon: '/logo.png',
+    icon: '/favicon.ico',
   },
 };
 
