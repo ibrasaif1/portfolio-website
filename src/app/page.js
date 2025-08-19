@@ -76,11 +76,10 @@ export default function Home() {
           id="pushnami"
           company="Pushnami"
           role="Software Engineer"
-          dates="August 2024 - Present"
           description={`
             
             `}
-          skills={["Go", "React.js", "Node.js", "Terraform", "CI/CD", "NoSQL", "SQL"]}
+          skills={["Go", "React.js", "Node.js", "Terraform", "CI/CD", "NoSQL", "SQL", "AWS"]}
         />
       </section>
       <section id="internships" className="my-8 scroll-mt-16">
@@ -89,7 +88,6 @@ export default function Home() {
           id="foundation-medicine"
           company="Foundation Medicine"
           role="Software Engineer Intern"
-          dates="Summer 2023"
           description={`
             Foundation Medicine conducts genomic profiling tests, which gives doctors and patients detailed insights into the genetic makeup of their cancer. 
             They can use these insights for more targeted, rather than general, treatment options. 
@@ -105,7 +103,6 @@ export default function Home() {
           id="principal-financial-group"
           company="Principal Financial Group"
           role="Software Engineer Intern"
-          dates="Summer 2022"
           description={`
             I worked on the Insider Risk team, tasked with completing a summer project to notify our Security Operations Center of potential bad actors within the company.
             To do this, I created an AWS architecture that:
@@ -124,7 +121,6 @@ export default function Home() {
           id="ruiz-foods"
           company="Freezer Pallet Drone Inspection"
           role="Senior Project"
-          dates="Winter 2024"
           description={`
             Ruiz Foods sells frozen Mexican food under the El Monterey brand in grocery stores and under the Tornados brand to convenience stores for their roller grills.
             They store pallets of products and ingredients in large, frozen warehouses at -10°F and heights up to 50 feet.
@@ -143,7 +139,6 @@ export default function Home() {
           id="lyric-learner"
           company="Lyric Learner"
           role="AI-enabled Twitter bot"
-          dates="December 2020"
           description={`
             Lyric Learner parses artist lyrics via Genius' RESTful API in Python, interprets the lyrics and generates new lyrics via a Java program written within the Maven Framework, then uses Twitter's RESTful API to send out Tweets.
             For Lyric Generation, the program utilizes Markov Chains to come up with a lyric based on all of the artist's past lyrics. A Markov Chain is a concept similar to predictive text on iMessage in which suggested words are chosen based on a weighted average of the words that most commonly follow it.
@@ -154,7 +149,6 @@ export default function Home() {
           id="bug-watch"
           company="Bug Watch"
           role="Bug tracking website for school project"
-          dates="November 2022"
           description="I used React to create the display for a bug tracking website and used Flask in Python to create REST API endpoints for creating or editing bug or user data."
           skills={["Python", "React.js"]}
         />

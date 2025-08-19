@@ -11,7 +11,7 @@ import {
 } from './ui/card';
 import { ChevronDownIcon } from 'lucide-react';
 
-const CollapsibleCard = ({ company, role, description, skills = [], dates }) => {
+const CollapsibleCard = ({ company, role, description, skills = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [maxHeight, setMaxHeight] = useState('0px');
   const contentRef = useRef(null);
@@ -77,10 +77,7 @@ const CollapsibleCard = ({ company, role, description, skills = [], dates }) => 
         >
           <CardHeader>
             <CardTitle>{company}</CardTitle>
-            <CardDescription className="flex flex-col">
-              <span>{role}</span>
-              {dates && <span className="text-sm text-gray-400 mt-1">{dates}</span>}
-            </CardDescription>
+            <CardDescription>{role}</CardDescription>
             <div className="flex flex-wrap gap-2 mt-2">
               {sortSkillsByPriority(skills).map((skill, index) => (
                 <span key={index} className={`${getSkillColor(skill)} text-xs font-medium px-2.5 py-1 rounded-full border`}>
