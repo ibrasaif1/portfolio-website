@@ -1,279 +1,212 @@
+'use client';
+
 import { Separator } from '@radix-ui/react-separator';
 import CollapsibleCard from '../components/CollapsibleCard';
 import Image from 'next/image';
-import ImageCarousel from '../components/ImageCarousel'; // Import the ImageCarousel component
+import ImageCarousel from '../components/ImageCarousel';
 import './globals.css';
 import Head from 'next/head';
-
-
+import { FileText, ExternalLink, Linkedin, Github, MapPinHouse } from 'lucide-react';
+import { cookingGalleries } from '../data/cookingGalleries';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
+  const [isIntroVisible, setIsIntroVisible] = useState(false);
+  const introRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsIntroVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (introRef.current) {
+      observer.observe(introRef.current);
+    }
+
+    return () => {
+      if (introRef.current) {
+        observer.unobserve(introRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div>
-      <div className="container mx-auto px-4">
-      <section id="about" className="my-8 scroll-mt-16">
-        <h2 className="text-3xl font-bold mb-6">About Me</h2>
-        <div className="bg-white/80 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl overflow-hidden">
-          <div className="grid md:grid-cols-2 gap-0">
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 flex flex-col items-center justify-center space-y-4">
-              <div className="w-32 h-32 rounded-full overflow-hidden shadow-lg">
-                <Image
-                  src="/selfie.png"
-                  alt="Ibrahim Saifullah headshot"
-                  width={200}
-                  height={200}
-                  className="object-cover object-top w-full h-full"
-                  layout="responsive"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-gray-800">Ibrahim Saifullah</h3>
-                <p className="text-gray-600">Software Engineer</p>
-                <p className="text-sm text-gray-500 mt-1">@ Pushnami</p>
-              </div>
-            </div>
-            
-            <div className="p-6 space-y-4">
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Hello!</h4>
-                <p className="text-sm text-gray-600">
-                  I'm a full-stack developer passionate about creating clean and intuitive interfaces backed by smooth systems.
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">At a Glance</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Backend experience with microservice architecture</li>
-                  <li>• Eye and passion for UI/UX design</li>
-                  <li>• Scalable systems & cloud infrastructure</li>
-                  <li>• Passionate home cook</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Skills</h4>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-cyan-100 text-cyan-800 border-cyan-200 text-xs font-medium px-2.5 py-1 rounded-full border">React.js</span>
-                  <span className="bg-green-100 text-green-800 border-green-200 text-xs font-medium px-2.5 py-1 rounded-full border">Node.js</span>
-                  <span className="bg-blue-100 text-blue-800 border-blue-200 text-xs font-medium px-2.5 py-1 rounded-full border">Go</span>
-                  <span className="bg-purple-100 text-purple-800 border-purple-200 text-xs font-medium px-2.5 py-1 rounded-full border">Terraform</span>
-                  <span className="bg-gray-100 text-gray-800 border-gray-200 text-xs font-medium px-2.5 py-1 rounded-full border">CI/CD</span>
-                  <span className="bg-yellow-100 text-yellow-800 border-yellow-200 text-xs font-medium px-2.5 py-1 rounded-full border">Python</span>
-                  <span className="bg-orange-100 text-orange-800 border-orange-200 text-xs font-medium px-2.5 py-1 rounded-full border">AWS</span>
-                  <span className="bg-indigo-100 text-indigo-800 border-indigo-200 text-xs font-medium px-2.5 py-1 rounded-full border">SQL</span>
-                  <span className="bg-emerald-100 text-emerald-800 border-emerald-200 text-xs font-medium px-2.5 py-1 rounded-full border">NoSQL</span>
-                  <span className="bg-gradient-to-r from-blue-100 to-purple-100 text-purple-800 border-purple-300 text-xs font-medium px-2.5 py-1 rounded-full border">NLP</span>
+    <div className="relative h-screen overflow-x-hidden overflow-y-auto snap-y snap-mandatory scroll-smooth overscroll-y-none bg-slate-950 text-slate-100">
+      <section id="hero" className="relative flex min-h-screen w-full items-center px-6 py-20 snap-start md:py-24 lg:px-16 xl:px-24">
+        <div className="mx-auto grid w-full max-w-7xl items-stretch gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1.95fr)]">
+            <aside className="flex h-full flex-col justify-center bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl p-8">
+              <div className="flex flex-1 flex-col items-center justify-center text-center space-y-6">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-white/20 shadow-2xl">
+                  <Image
+                    src="/selfie.png"
+                    alt="Ibrahim Saifullah headshot"
+                    width={240}
+                    height={240}
+                    className="object-cover object-top w-full h-full"
+                    priority
+                  />
+                </div>
+                <div className="space-y-4 w-full">
+                  <div className="space-y-2">
+                    <h1 className="text-3xl md:text-4xl font-bold text-white">Ibrahim Saifullah</h1>
+                    <p className="text-slate-200 text-lg">Software Engineer @ Pushnami</p>
+                    <p className="text-slate-300 text-sm md:text-base">
+                      I'm a full stack software engineer with a passion for building products that are both functional and delightful.
+                    </p>
+                  </div>
+                  <div className="flex justify-center">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3 py-1 text-sm text-slate-100">
+                      <MapPinHouse className="h-4 w-4" aria-hidden /> Austin, TX
+                    </span>
+                  </div>
+                  <div className="flex justify-center items-center gap-3">
+                    <a
+                      href="/Ibrahim Saifullah - Resume.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm text-slate-100 transition hover:border-white hover:text-white"
+                    >
+                      <FileText className="h-4 w-4" aria-hidden />
+                      Resume
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/ibrahimsaifullah"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-slate-100 transition hover:border-white hover:text-white"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                    </a>
+                    <a
+                      href="https://github.com/ibrasaif1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-slate-100 transition hover:border-white hover:text-white"
+                      aria-label="GitHub"
+                    >
+                      <Github className="h-4 w-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
+            </aside>
+            <div className="flex flex-col gap-6">
+              <div className="grid gap-6 lg:grid-rows-[auto_auto]">
+              <article className="group relative overflow-hidden rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-10 text-slate-100 shadow-xl">
+                <div className="text-xs font-semibold uppercase tracking-[0.35em] text-blue-200/80">
+                  Featured Project
+                </div>
+                <h3 className="mt-6 text-2xl font-semibold text-white">
+                  <a
+                    href="https://topspots.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 transition hover:text-blue-200 cursor-pointer"
+                  >
+                    TopSpots
+                  </a>
+                </h3>
+                <div className="mt-3 space-y-3 text-sm md:text-base text-slate-200">
+                  <p></p>
+                  <ul className="space-y-2">
+                    <p>TopSpots is a project I'm working on to show the best and most popular places in a city, based on 4.5+ stars and 1,000+ ratings on Google Maps. This web app enables users to:</p>
+                    <li>• Become a connoisseur of their city by knowing the absolute best spots</li>
+                    <li>• Figure out where to eat in a city they're visiting</li>
+                    <li>• Locate the most lively parts of a city based on concentration of these places</li>
+                  </ul>
+                </div>
+                <div className="mt-6 flex flex-wrap gap-2 text-xs text-slate-200">
+                  {['Next.js', 'TypeScript', 'UI/UX'].map((tag) => (
+                    <span key={tag} className="rounded-full border border-white/30 bg-white/10 px-3 py-1">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href="https://topspots.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-200 transition hover:text-blue-100"
+                >
+                  Open project <ExternalLink className="h-4 w-4" aria-hidden />
+                </a>
+                <div className="pointer-events-none absolute inset-0 rounded-3xl border border-white/20" />
+              </article>
+              <article className="group relative overflow-hidden rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-10 text-slate-100 shadow-xl">
+                <div className="text-xs font-semibold uppercase tracking-[0.35em] text-purple-200/80">
+                  Current Role
+                </div>
+                <h3 className="mt-6 text-2xl font-semibold text-white">Software Engineer · Pushnami</h3>
+                <div className="mt-3 space-y-3 text-sm md:text-base text-slate-200">
+                  <p>Pushnami is a startup where I work on the full stack:</p>
+                  <ul className="space-y-2">
+                    <li>• <strong>Frontend:</strong> React.js UI changes to improve UX</li>
+                    <li>• <strong>Backend:</strong> Build new features in Node.js and Go</li>
+                    <li>• <strong>Infrastructure:</strong> Deploy new microservices, build infrastructure with Terraform, or create CI/CD pipelines</li>
+                  </ul>
+                </div>
+                <div className="mt-6 flex flex-wrap gap-2 text-xs text-slate-200">
+                  {['Node.js', 'Go', 'React.js', 'AWS', 'Terraform'].map((tag) => (
+                    <span key={tag} className="rounded-full border border-white/30 bg-white/10 px-3 py-1">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="pointer-events-none absolute inset-0 rounded-3xl border border-white/20" />
+              </article>
+              </div>
             </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center h-24">
+          <a
+            href="#cooking"
+            aria-label="Scroll to cooking section"
+            className="text-3xl text-white/60 transition hover:text-white"
+          >
+            ↓
+          </a>
+        </div>
+      </section>
+
+      <section id="cooking" className="relative px-6 pb-32 pt-32 snap-start md:px-16 xl:px-24 max-h-screen overflow-y-auto">
+        <a
+          href="#hero"
+          aria-label="Scroll back to hero section"
+          className="absolute top-12 left-1/2 -translate-x-1/2 text-3xl text-white/60 transition hover:text-white"
+        >
+          ↑
+        </a>
+        <div
+          ref={introRef}
+          className={`mx-auto max-w-3xl text-center mb-12 transition-all duration-1000 ease-out ${
+            isIntroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <p className="text-2xl md:text-3xl text-white font-light leading-relaxed">
+            One thing I'm interested in is cooking.
+          </p>
+          <p className="mt-3 text-lg md:text-xl text-slate-300 font-light">
+            Check out some of the food I've made!
+          </p>
+        </div>
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl border border-white/20 bg-white/5 p-10 text-slate-100 shadow-2xl backdrop-blur-xl ">
+          <h2 className="text-2xl font-semibold text-white">Cooking</h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {cookingGalleries.map((gallery) => (
+              <ImageCarousel key={gallery.caption} images={gallery.images} caption={gallery.caption} />
+            ))}
           </div>
         </div>
       </section>
-      <section id="work-experience" className="my-8 scroll-mt-16">
-        <h2 className="text-3xl font-bold">Work Experience</h2>
-        <CollapsibleCard
-          id="pushnami"
-          company="Pushnami"
-          role="Software Engineer"
-          description={`• Built Node.js and Golang backend features in microservice architecture to improve user-to-offer matching algorithms and enable self-service business operations
-• Increased revenue per visit by 20%+ and improved user progression rates through React.js frontend UX enhancements
-• Implemented infrastructure as code using Terraform, created CI/CD pipelines, configured Kubernetes deployments, and implemented monitoring/alerts for system reliability`}
-          skills={["Go", "React.js", "Node.js", "Terraform", "CI/CD", "NoSQL", "SQL", "AWS"]}
-        />
-      </section>
-      <section id="internships" className="my-8 scroll-mt-16">
-        <h2 className="text-3xl font-bold">Internships</h2>
-        <CollapsibleCard
-          id="foundation-medicine"
-          company="Foundation Medicine"
-          role="Software Engineer Intern"
-          description={`
-            Foundation Medicine conducts genomic profiling tests, which gives doctors and patients detailed insights into the genetic makeup of their cancer. 
-            They can use these insights for more targeted, rather than general, treatment options. 
-            Here, I worked on the EMR Integrations team. We were responsible for the test ordering system on hospital software, which was enabled by Kafka.
-            My duties included:
-            • Completing tickets add features or fix bugs in our JavaScript codebase
-            • Add unit tests to be ran by Jenkins in CI/CD pipeline to ensure that my changes were thoroughly validated
-            • Program Node.js scripts to speed up developer processes, like encoding/decoding base64 all on the CLI
-            `}
-          skills={["Node.js"]}
-        />
-        <CollapsibleCard
-          id="principal-financial-group"
-          company="Principal Financial Group"
-          role="Software Engineer Intern"
-          description={`
-            I worked on the Insider Risk team, tasked with completing a summer project to notify our Security Operations Center of potential bad actors within the company.
-            To do this, I created an AWS architecture that:
-            • Used a Python Lambda with an SQL query filtering employees by seemingly suspicious behavior (like mass downloading sensitive documents to a USB)
-            • Deployed API Gateway to call this Lambda and send response to SOC
-            We also had a brief intern hackathon within the company, in which I:
-            • Collaborated with a group to create a React website for non-engineering employees to post engineering problems they had so that company engineers can solve them
-            • Hosted this website on AWS Amplify with Cognito authentication
-            `}
-          skills={["Python", "AWS", "React.js"]}
-        />
-      </section>
-      <section id="projects" className="my-8 scroll-mt-16">
-        <h2 className="text-3xl font-bold">Projects</h2>
-        <CollapsibleCard
-          id="ruiz-foods"
-          company="Freezer Pallet Drone Inspection"
-          role="Senior Project"
-          description={`
-            Ruiz Foods sells frozen Mexican food under the El Monterey brand in grocery stores and under the Tornados brand to convenience stores for their roller grills.
-            They store pallets of products and ingredients in large, frozen warehouses at -10°F and heights up to 50 feet.
-            Sometimes, pallets aren't placed perfectly, and they tip. A tipped pallet can end up falling over which causes product loss, time loss to fix it, and even potentially injury.
-            To address this problem, Ruiz Foods wanted to implement a solution involving a drone that would fly to and upload a picture of each pallet location.
-            The drone part was left out of our scope, to be completed in another phase. My group focused on creating an interface and ML model to deduce whether a picture of a pallet was deemed risky or not.
-            To complete this project, I:
-            • Served as Point-of-Contact with company representatives to translate business needs into app features
-            • Developed React web app for interface
-            • Deployed PostgreSQL database on AWS RDS
-            • Created REST API endpoints with Node.js and Express
-            `}
-          skills={["React.js", "Node.js", "SQL"]}
-        />
-        <CollapsibleCard
-          id="lyric-learner"
-          company="Lyric Learner"
-          role="AI-enabled Twitter bot"
-          description={`
-            Lyric Learner parses artist lyrics via Genius' RESTful API in Python, interprets the lyrics and generates new lyrics via a Java program written within the Maven Framework, then uses Twitter's RESTful API to send out Tweets.
-            For Lyric Generation, the program utilizes Markov Chains to come up with a lyric based on all of the artist's past lyrics. A Markov Chain is a concept similar to predictive text on iMessage in which suggested words are chosen based on a weighted average of the words that most commonly follow it.
-            `}
-          skills={["Python", "NLP"]}
-        />
-        <CollapsibleCard
-          id="bug-watch"
-          company="Bug Watch"
-          role="Bug tracking website for school project"
-          description="I used React to create the display for a bug tracking website and used Flask in Python to create REST API endpoints for creating or editing bug or user data."
-          skills={["Python", "React.js"]}
-        />
-      </section>
-      <section id="cooking" className="my-8 scroll-mt-16">
-        <h2 className="text-3xl font-bold mb-6">Cooking</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="col-span-1">
-            <ImageCarousel
-              images={[
-                { src: '/cooking/Sticky Toffee Cheesecake/stc1.jpg', alt: 'Sticky Toffee Cheesecake 1' },
-                { src: '/cooking/Sticky Toffee Cheesecake/stc2.jpg', alt: 'Sticky Toffee Cheesecake 2' },
-                { src: '/cooking/Sticky Toffee Cheesecake/stc3.jpg', alt: 'Sticky Toffee Cheesecake 3' },
-                { src: '/cooking/Sticky Toffee Cheesecake/stc4.jpg', alt: 'Sticky Toffee Cheesecake 4' },
-                { src: '/cooking/Sticky Toffee Cheesecake/stc5.jpg', alt: 'Sticky Toffee Cheesecake 5' },
-              ]}
-              caption="Sticky Toffee Cheesecake"
-            />
-          </div>
-          <div className="col-span-1">
-            <ImageCarousel
-              images={[
-                { src: '/cooking/Sushi/sushi1.jpg', alt: 'Sushi 1' },
-                { src: '/cooking/Sushi/sushi2.jpg', alt: 'Sushi 2' },
-                { src: '/cooking/Sushi/sushi3.jpg', alt: 'Sushi 3' },
-                { src: '/cooking/Sushi/sushi4.jpg', alt: 'Sushi 4' },
-                { src: '/cooking/Sushi/sushi5.jpg', alt: 'Sushi 5' },
-              ]}
-              caption="Sushi"
-            />
-          </div>
-          <div className="col-span-1">
-            <ImageCarousel
-              images={[
-                { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb1.jpg', alt: 'Lemon Raspberry Cheesecake Bars 1' },
-                { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb2.jpg', alt: 'Lemon Raspberry Cheesecake Bars 2' },
-                { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb3.jpg', alt: 'Lemon Raspberry Cheesecake Bars 3' },
-                { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb4.jpg', alt: 'Lemon Raspberry Cheesecake Bars 4' },
-                { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb5.jpg', alt: 'Lemon Raspberry Cheesecake Bars 5' },
-                { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb6.jpg', alt: 'Lemon Raspberry Cheesecake Bars 6' },
-                { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb7.jpg', alt: 'Lemon Raspberry Cheesecake Bars 7' },
-                { src: '/cooking/Lemon Raspberry Cheesecake Bars/lrcb8.jpg', alt: 'Lemon Raspberry Cheesecake Bars 8' },
-              ]}
-              caption="Lemon Raspberry Cheesecake Bars"
-            />
-          </div>
-          <div className="col-span-1">
-            <ImageCarousel
-              images={[
-                { src: '/cooking/Gougères/g1.jpg', alt: 'Gougères 1' },
-                { src: '/cooking/Gougères/g2.jpg', alt: 'Gougères 2' },
-                { src: '/cooking/Gougères/g3.jpg', alt: 'Gougères 3' },
-                { src: '/cooking/Gougères/g4.jpg', alt: 'Gougères 4' },
-                { src: '/cooking/Gougères/g5.jpg', alt: 'Gougères 5' },
-                { src: '/cooking/Gougères/g6.jpg', alt: 'Gougères 6' },
-              ]}
-              caption="Gougères"
-            />
-          </div>
-          <div className="col-span-1">
-            <ImageCarousel
-              images={[
-                { src: '/cooking/Crunchy Broccoli Fritters/cbf1.jpg', alt: 'Crunchy Broccoli Fritters 1' },
-                { src: '/cooking/Crunchy Broccoli Fritters/cbf2.jpg', alt: 'Crunchy Broccoli Fritters 2' },
-                { src: '/cooking/Crunchy Broccoli Fritters/cbf3.jpg', alt: 'Crunchy Broccoli Fritters 3' },
-                { src: '/cooking/Crunchy Broccoli Fritters/cbf4.jpg', alt: 'Crunchy Broccoli Fritters 4' },
-                { src: '/cooking/Crunchy Broccoli Fritters/cbf5.jpg', alt: 'Crunchy Broccoli Fritters 5' },
-                { src: '/cooking/Crunchy Broccoli Fritters/cbf6.jpg', alt: 'Crunchy Broccoli Fritters 6' },
-              ]}
-              caption="Broccoli Fritters"
-            />
-          </div>
-          <div className="col-span-1">
-            <ImageCarousel
-              images={[
-                { src: '/cooking/Million Layer Potatoes/mlp1.jpg', alt: 'Million Layer Potatoes 1' },
-                { src: '/cooking/Million Layer Potatoes/mlp2.jpg', alt: 'Million Layer Potatoes 2' },
-                { src: '/cooking/Million Layer Potatoes/mlp3.jpg', alt: 'Million Layer Potatoes 3' },
-                { src: '/cooking/Million Layer Potatoes/mlp4.jpg', alt: 'Million Layer Potatoes 4' },
-                { src: '/cooking/Million Layer Potatoes/mlp5.jpg', alt: 'Million Layer Potatoes 5' },
-                { src: '/cooking/Million Layer Potatoes/mlp6.jpg', alt: 'Million Layer Potatoes 6' },
-              ]}
-              caption="Million Layer Potatoes"
-            />
-          </div>
-          <div className="col-span-1">
-            <ImageCarousel
-              images={[
-                { src: '/cooking/Shakshuka/s1.jpg', alt: 'Shakshuka 1' },
-                { src: '/cooking/Shakshuka/s2.jpg', alt: 'Shakshuka 2' },
-                { src: '/cooking/Shakshuka/s3.jpg', alt: 'Shakshuka 3' },
-                { src: '/cooking/Shakshuka/s4.jpg', alt: 'Shakshuka 4' },
-                { src: '/cooking/Shakshuka/s5.jpg', alt: 'Shakshuka 5' },
-                { src: '/cooking/Shakshuka/s6.jpg', alt: 'Shakshuka 6' },
-                { src: '/cooking/Shakshuka/s7.jpg', alt: 'Shakshuka 7' },
-                { src: '/cooking/Shakshuka/s8.jpg', alt: 'Shakshuka 8' },
-              ]}
-              caption="Shakshuka"
-            />
-          </div>
-          <div className="col-span-1 rounded-xl border border-white/20 bg-white/80 backdrop-blur-lg overflow-hidden shadow-2xl">
-              <Image
-                src="/cooking/spicy-fried-chicken.jpg"
-                alt="Spicy Fried Chicken"
-                width={500}
-                height={500}
-                className="object-cover"
-              />
-              <div className="caption p-2 text-center text-lg bg-white/90 backdrop-blur-sm">Spicy Fried Chicken</div>
-          </div>
-          <div className="col-span-1 rounded-xl border border-white/20 bg-white/80 backdrop-blur-lg overflow-hidden shadow-2xl">
-              <Image
-                src="/cooking/Smashburger.jpg"
-                alt="Smashburger"
-                width={500}
-                height={500}
-                className="object-cover"
-              />
-              <div className="caption p-2 text-center text-lg bg-white/90 backdrop-blur-sm">Smashburger</div>
-          </div>
-        </div>
-      </section>
-      {/* Adding blank space at the bottom */}
-      <div className="h-32"></div>
-      </div>
+      <div className="h-24" aria-hidden />
     </div>
   );
 }
