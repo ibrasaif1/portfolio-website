@@ -41,7 +41,7 @@ export default function Home() {
     <div className="relative h-screen overflow-x-hidden overflow-y-auto snap-y snap-mandatory scroll-smooth overscroll-y-none bg-slate-950 text-slate-100">
       <section id="hero" className="relative flex min-h-screen w-full items-center px-6 py-20 snap-start md:py-24 lg:px-16 xl:px-24">
         <div className="mx-auto grid w-full max-w-7xl items-stretch gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1.95fr)]">
-            <aside className="flex h-full flex-col justify-center bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl p-8">
+            <aside className="group relative overflow-hidden flex h-full flex-col justify-center bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl p-8">
               <div className="flex flex-1 flex-col items-center justify-center text-center space-y-6">
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-white/20 shadow-2xl">
                   <Image
@@ -97,6 +97,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <div className="pointer-events-none absolute inset-0 rounded-3xl border border-white/20" />
             </aside>
             <div className="flex flex-col gap-6">
               <div className="grid gap-6 lg:grid-rows-[auto_auto]">
