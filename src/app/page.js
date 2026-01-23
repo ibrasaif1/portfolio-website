@@ -56,7 +56,7 @@ export default function Home() {
                 <div className="space-y-4 w-full">
                   <div className="space-y-2">
                     <h1 className="text-3xl md:text-4xl font-bold text-white">Ibrahim Saifullah</h1>
-                    <p className="text-slate-200 text-lg">Software Engineer @ Pushnami</p>
+                    <p className="text-slate-200 text-lg">Lead Software Engineer @ Pushnami</p>
                     <p className="text-slate-300 text-sm md:text-base">
                       I'm a full stack software engineer with a passion for building products that are both functional and delightful.
                     </p>
@@ -145,7 +145,7 @@ export default function Home() {
                 <div className="text-xs font-semibold uppercase tracking-[0.35em] text-purple-200/80">
                   Current Role
                 </div>
-                <h3 className="mt-6 text-2xl font-semibold text-white">Software Engineer · Pushnami</h3>
+                <h3 className="mt-6 text-2xl font-semibold text-white">Lead Software Engineer · Pushnami</h3>
                 <div className="mt-3 space-y-3 text-sm md:text-base text-slate-200">
                   <p>Pushnami is a startup where I work on the full stack:</p>
                   <ul className="space-y-2">
