@@ -14,6 +14,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
   const [dragProgress, setDragProgress] = useState(null);
   const containerRef = useRef(null);
+  const carouselApis = useRef([])
 
   const goLeft = useCallback(() => {
     setActiveSection((prev) => Math.max(0, prev - 1));
@@ -75,6 +76,12 @@ export default function Home() {
   // During drag, use fractional progress; otherwise snap to active section
   const isSliding = dragProgress !== null;
   const translateVw = isSliding ? -dragProgress * 100 : -activeSection * 100;
+
+  // Cooking page button styles
+  const pillButtonClass = "px-5 py-1.5 rounded-full text-sm font-medium text-slate-900 dark:text-white cursor-pointer"
+    + " bg-gradient-to-b from-black/[0.07] to-black/[0.03] dark:from-white/[0.16] dark:to-white/[0.08]"
+    + " shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
+    + " border border-black/[0.08] dark:border-white/[0.12]";
 
   return (
     <div className="h-screen overflow-hidden bg-stone-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 flex flex-col transition-colors duration-300">
@@ -261,19 +268,37 @@ export default function Home() {
           {/* ── Cooking Panel ── */}
           <section className="w-screen shrink-0 h-full overflow-y-auto">
             <div className="px-6 pt-16 pb-20 md:px-16 xl:px-24">
-              <div className="mx-auto max-w-3xl text-center mb-12">
-                <p className="text-2xl md:text-3xl text-slate-900 dark:text-white font-light leading-relaxed">
-                  One thing I&apos;m interested in is cooking.
-                </p>
-                <p className="mt-3 text-lg md:text-xl text-slate-500 dark:text-slate-300 font-light">
-                  Check out some of the food I&apos;ve made!
-                </p>
-              </div>
-              <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-white/20 dark:bg-white/5 p-10 text-slate-800 dark:text-slate-100 shadow-lg dark:shadow-2xl backdrop-blur-xl transition-colors duration-300">
-                <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">Cooking</h2>
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <button 
+                    className={pillButtonClass}
+                    onClick={() => {
+                      carouselApis.current.forEach((api) => {
+                        if (api) api.scrollTo(api.scrollSnapList().length - 1);
+                      });
+                    }}
+                  >
+                    Show Final Products
+                  </button>
+                  <button
+                    className={pillButtonClass}
+                    onClick={() => {
+                      carouselApis.current.forEach((api) => {
+                        if (api) api.scrollTo(0);
+                      });
+                    }}
+                  >
+                    Go Back to Start
+                  </button>
+                </div>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  {cookingGalleries.map((gallery) => (
-                    <ImageCarousel key={gallery.caption} images={gallery.images} caption={gallery.caption} />
+                  {cookingGalleries.map((gallery, index) => (
+                    <ImageCarousel 
+                      key={gallery.caption} 
+                      images={gallery.images} 
+                      caption={gallery.caption}
+                      setApi={(api) => { carouselApis.current[index] = api; }}
+                    />
                   ))}
                 </div>
               </div>

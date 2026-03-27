@@ -7,12 +7,12 @@ import {
 } from './ui/carousel';
 import Image from 'next/image';
 
-const ImageCarousel = ({ images, caption }) => {
+const ImageCarousel = ({ images, caption, setApi }) => {
     const showControls = images.length > 1;
 
     return (
         <div className="carousel-container relative rounded-xl border border-white/20 bg-white/90 backdrop-blur-lg shadow-2xl">
-            <ShadcnCarousel>
+            <ShadcnCarousel setApi={setApi}>
                 <CarouselContent>
                     {images.map((image, index) => (
                         <CarouselItem key={index} className="relative">
@@ -30,8 +30,8 @@ const ImageCarousel = ({ images, caption }) => {
                 </CarouselContent>
                 {showControls && (
                     <>
-                        <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2"/>
-                        <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2"/>
+                        <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10"/>
+                        <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10"/>
                     </>
                 )}
             </ShadcnCarousel>
