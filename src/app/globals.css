@@ -7,6 +7,5 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #ADD8E6, #A7C7E7);
-  /* background: #ADD8E6; */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

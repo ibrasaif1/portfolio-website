@@ -1,9 +1,9 @@
-import { 
+import {
     Carousel as ShadcnCarousel,
     CarouselContent,
     CarouselItem,
     CarouselNext,
-    CarouselPrevious, 
+    CarouselPrevious,
 } from './ui/carousel';
 import Image from 'next/image';
 
@@ -11,16 +11,16 @@ const ImageCarousel = ({ images, caption }) => {
     const showControls = images.length > 1;
 
     return (
-        <div className="carousel-container relative rounded-xl border border-white/20 bg-white/90 backdrop-blur-lg overflow-hidden shadow-2xl">
+        <div className="carousel-container relative rounded-xl border border-white/20 bg-white/90 backdrop-blur-lg shadow-2xl">
             <ShadcnCarousel>
                 <CarouselContent>
                     {images.map((image, index) => (
                         <CarouselItem key={index} className="relative">
-                            <Image 
-                                src={image.src} 
-                                alt={image.alt} 
-                                width={500} 
-                                height={500} 
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                width={500}
+                                height={500}
                                 className="object-cover"
                                 priority={index === 0}
                                 loading={index === 0 ? undefined : "eager"}
