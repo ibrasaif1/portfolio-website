@@ -4,7 +4,7 @@ import Image from 'next/image';
 import ImageCarousel from '../components/ImageCarousel';
 import Navbar from '../components/Navbar';
 import './globals.css';
-import { FileText, ExternalLink, Linkedin, Github, MapPinHouse, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FileText, ExternalLink, Linkedin, Github, MapPinHouse, ChevronLeft, ChevronRight, SkipForward, SkipBack } from 'lucide-react';
 import { cookingGalleries } from '../data/cookingGalleries';
 import { useEffect, useState, useCallback, useRef } from 'react';
 
@@ -14,7 +14,8 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
   const [dragProgress, setDragProgress] = useState(null);
   const containerRef = useRef(null);
-  const carouselApis = useRef([])
+  const carouselApis = useRef([]);
+  const [slidePositions, setSlidePositions] = useState([]);
 
   const goLeft = useCallback(() => {
     setActiveSection((prev) => Math.max(0, prev - 1));
@@ -78,10 +79,18 @@ export default function Home() {
   const translateVw = isSliding ? -dragProgress * 100 : -activeSection * 100;
 
   // Cooking page button styles
-  const pillButtonClass = "px-5 py-1.5 rounded-full text-sm font-medium text-slate-900 dark:text-white cursor-pointer"
+  const allAtStart = slidePositions.length > 0 && slidePositions.every((pos) => pos === 0);
+  const allAtEnd = slidePositions.length > 0 && slidePositions.every((pos, i) => {
+    const api = carouselApis.current[i];
+    return api && pos === api.scrollSnapList().length - 1;
+  });
+
+  const pillButtonBase = "flex items-center gap-1.5 px-5 py-1.5 rounded-full text-sm font-medium transition-all duration-200";
+  const pillButtonEnabled = " text-slate-900 dark:text-white cursor-pointer"
     + " bg-gradient-to-b from-black/[0.07] to-black/[0.03] dark:from-white/[0.16] dark:to-white/[0.08]"
     + " shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
     + " border border-black/[0.08] dark:border-white/[0.12]";
+  const pillButtonDisabled = " text-slate-400 dark:text-slate-500 cursor-default border border-slate-200 dark:border-white/[0.15]";
 
   return (
     <div className="h-screen overflow-hidden bg-stone-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 flex flex-col transition-colors duration-300">
@@ -270,25 +279,27 @@ export default function Home() {
             <div className="px-6 pt-16 pb-20 md:px-16 xl:px-24">
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <button 
-                    className={pillButtonClass}
-                    onClick={() => {
-                      carouselApis.current.forEach((api) => {
-                        if (api) api.scrollTo(api.scrollSnapList().length - 1);
-                      });
-                    }}
-                  >
-                    Show Final Products
-                  </button>
-                  <button
-                    className={pillButtonClass}
+                <button
+                    className={pillButtonBase + (allAtStart ? pillButtonDisabled : pillButtonEnabled)}
+                    disabled={allAtStart}
                     onClick={() => {
                       carouselApis.current.forEach((api) => {
                         if (api) api.scrollTo(0);
                       });
                     }}
                   >
-                    Go Back to Start
+                    <SkipBack className="h-4 w-4" />
+                  </button>
+                  <button
+                    className={pillButtonBase + (allAtEnd ? pillButtonDisabled : pillButtonEnabled)}
+                    disabled={allAtEnd}
+                    onClick={() => {
+                      carouselApis.current.forEach((api) => {
+                        if (api) api.scrollTo(api.scrollSnapList().length - 1);
+                      });
+                    }}
+                  >
+                    <SkipForward className="h-4 w-4" />
                   </button>
                 </div>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -297,7 +308,20 @@ export default function Home() {
                       key={gallery.caption} 
                       images={gallery.images} 
                       caption={gallery.caption}
-                      setApi={(api) => { carouselApis.current[index] = api; }}
+                      setApi={(api) => {
+                        carouselApis.current[index] = api;
+                        if (api) {
+                          const updatePositions = () => {
+                            setSlidePositions((prev) => {
+                              const next = [...prev];
+                              next[index] = api.selectedScrollSnap();
+                              return next;
+                            });
+                          };
+                          updatePositions();
+                          api.on('select', updatePositions);
+                        }
+                      }}
                     />
                   ))}
                 </div>
