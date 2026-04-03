@@ -119,37 +119,37 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
   // Pill style varies by theme
   const pillBackground = isDark
     ? (isDragging
-        ? 'linear-gradient(180deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.16) 100%)'
-        : 'linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.08) 100%)')
+        ? 'linear-gradient(180deg, rgba(43,57,109,0.55) 0%, rgba(43,57,109,0.35) 100%)'
+        : 'linear-gradient(180deg, rgba(43,57,109,0.4) 0%, rgba(43,57,109,0.25) 100%)')
     : (isDragging
-        ? 'linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.06) 100%)'
-        : 'linear-gradient(180deg, rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.03) 100%)');
+        ? 'linear-gradient(180deg, rgba(43,57,109,0.18) 0%, rgba(43,57,109,0.1) 100%)'
+        : 'linear-gradient(180deg, rgba(43,57,109,0.1) 0%, rgba(43,57,109,0.05) 100%)');
 
   const pillShadow = isDark
     ? (isDragging
-        ? '0 0 20px rgba(255,255,255,0.12), inset 0 1px 0 rgba(255,255,255,0.25)'
-        : 'inset 0 1px 0 rgba(255,255,255,0.12)')
+        ? '0 0 20px rgba(43,57,109,0.4), inset 0 1px 0 rgba(255,255,255,0.1)'
+        : 'inset 0 1px 0 rgba(255,255,255,0.06)')
     : (isDragging
-        ? '0 0 20px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.8)'
+        ? '0 0 20px rgba(43,57,109,0.12), inset 0 1px 0 rgba(255,255,255,0.8)'
         : 'inset 0 1px 0 rgba(255,255,255,0.6)');
 
   const pillBorder = isDark
-    ? '1px solid rgba(255,255,255,0.12)'
-    : '1px solid rgba(0,0,0,0.08)';
+    ? '1px solid rgba(43,57,109,0.55)'
+    : '1px solid rgba(43,57,109,0.15)';
 
   return (
-    <nav className="shrink-0 border-b border-slate-200 bg-white/80 dark:border-slate-700/60 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-lg z-50 transition-colors duration-300">
+    <nav className="absolute top-0 left-0 right-0 bg-brand-light/80 dark:bg-brand-dark/80 backdrop-blur-xl z-50 transition-colors duration-300">
       <div className="mx-auto w-full max-w-7xl py-3 flex justify-between items-center">
         <div className="flex-1">
           <button
             onClick={() => onSectionChange(0)}
-            className="text-2xl font-bold text-slate-900 dark:text-white cursor-pointer"
+            className="text-2xl font-bold text-brand-dark dark:text-brand-light cursor-pointer"
           >
-            IS.
+            Ibrahim
           </button>
         </div>
 
-        <div className="relative flex items-center rounded-full bg-slate-100 dark:bg-white/5 p-1 select-none transition-colors duration-300">
+        <div className="relative flex items-center rounded-full bg-brand-navy/10 dark:bg-brand-navy/15 p-1 select-none transition-colors duration-300">
           {/* ── Glass pill (purely visual) ── */}
           <div
             className={`absolute top-1 bottom-1 rounded-full pointer-events-none ${
@@ -177,8 +177,8 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
               onClick={() => onSectionChange(index)}
               className={`relative z-10 px-5 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
                 visualIndex === index
-                  ? 'text-slate-900 dark:text-white'
-                  : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
+                  ? 'text-brand-dark dark:text-brand-light'
+                  : 'text-brand-dark/40 hover:text-brand-dark/70 dark:text-brand-light/40 dark:hover:text-brand-light/80'
               } ${
                 index === activeSection
                   ? isDragging
@@ -193,10 +193,10 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
           ))}
         </div>
 
-        <div className="flex-1 flex items-center justify-end gap-3 text-slate-500 dark:text-slate-200">
+        <div className="flex-1 flex items-center justify-end gap-3 text-brand-dark/50 dark:text-brand-light/70">
           <button
             onClick={toggleTheme}
-            className="flex items-center justify-center rounded-full p-2 hover:text-slate-900 dark:hover:text-white transition cursor-pointer"
+            className="flex items-center justify-center rounded-full p-2 hover:text-brand-dark dark:hover:text-brand-light transition cursor-pointer"
             aria-label="Toggle theme"
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -205,7 +205,7 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
             href="/Ibrahim Saifullah - Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm hover:text-slate-900 dark:hover:text-white transition hidden sm:block"
+            className="text-sm hover:text-brand-dark dark:hover:text-brand-light transition hidden sm:block"
           >
             Resume
           </a>
@@ -213,7 +213,7 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
             href="https://www.linkedin.com/in/ibrahimsaifullah"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-slate-900 dark:hover:text-white transition"
+            className="hover:text-brand-dark dark:hover:text-brand-light transition"
             aria-label="LinkedIn"
           >
             <FontAwesomeIcon icon={faLinkedin} size="lg" />
@@ -222,7 +222,7 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
             href="https://github.com/ibrasaif1"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-slate-900 dark:hover:text-white transition"
+            className="hover:text-brand-dark dark:hover:text-brand-light transition"
             aria-label="GitHub"
           >
             <FontAwesomeIcon icon={faGithub} size="lg" />

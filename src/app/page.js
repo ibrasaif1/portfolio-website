@@ -86,26 +86,26 @@ export default function Home() {
   });
 
   const pillButtonBase = "flex items-center gap-1.5 px-5 py-1.5 rounded-full text-sm font-medium transition-all duration-200";
-  const pillButtonEnabled = " text-slate-900 dark:text-white cursor-pointer"
-    + " bg-gradient-to-b from-black/[0.07] to-black/[0.03] dark:from-white/[0.16] dark:to-white/[0.08]"
-    + " shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
-    + " border border-black/[0.08] dark:border-white/[0.12]";
-  const pillButtonDisabled = " text-slate-400 dark:text-slate-500 cursor-default border border-slate-200 dark:border-white/[0.15]";
+  const pillButtonEnabled = " text-brand-dark dark:text-brand-light cursor-pointer"
+    + " bg-gradient-to-b from-brand-navy/10 to-brand-navy/5 dark:from-brand-navy/40 dark:to-brand-navy/25"
+    + " shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+    + " border border-brand-navy/20 dark:border-brand-navy/50";
+  const pillButtonDisabled = " text-brand-dark/40 dark:text-brand-light/30 cursor-default border border-brand-navy/10 dark:border-brand-navy/25";
 
   return (
-    <div className="h-screen overflow-hidden bg-stone-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 flex flex-col transition-colors duration-300">
+    <div className="h-screen overflow-hidden relative bg-brand-light text-brand-dark dark:bg-brand-dark dark:text-brand-light transition-colors duration-300">
       <Navbar
         activeSection={activeSection}
         onSectionChange={setActiveSection}
         onDragProgress={setDragProgress}
       />
 
-      <div className="flex-1 overflow-hidden relative" ref={containerRef}>
+      <div className="absolute inset-0 overflow-hidden" ref={containerRef}>
         {/* ── Section navigation arrows ── */}
         {activeSection > 0 && (
           <button
             onClick={goLeft}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-40 text-slate-400 hover:text-slate-600 dark:text-white/40 dark:hover:text-white/80 transition-colors duration-200 cursor-pointer"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-40 text-brand-dark/40 hover:text-brand-dark/70 dark:text-brand-light/40 dark:hover:text-brand-light/80 transition-colors duration-200 cursor-pointer"
             aria-label="Previous section"
           >
             <ChevronLeft className="h-8 w-8" />
@@ -114,7 +114,7 @@ export default function Home() {
         {activeSection < SECTION_COUNT - 1 && (
           <button
             onClick={goRight}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-40 text-slate-400 hover:text-slate-600 dark:text-white/40 dark:hover:text-white/80 transition-colors duration-200 cursor-pointer"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-40 text-brand-dark/40 hover:text-brand-dark/70 dark:text-brand-light/40 dark:hover:text-brand-light/80 transition-colors duration-200 cursor-pointer"
             aria-label="Next section"
           >
             <ChevronRight className="h-8 w-8" />
@@ -134,9 +134,9 @@ export default function Home() {
           <section className="w-screen shrink-0 h-full overflow-y-auto">
             <div className="min-h-full flex items-center px-6 py-20 md:py-24 lg:px-16 xl:px-24">
               <div className="mx-auto grid w-full max-w-7xl items-stretch gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1.95fr)]">
-                <aside className="group relative overflow-hidden flex h-full flex-col justify-center bg-white border border-slate-200 shadow-lg dark:bg-white/10 dark:border-white/20 dark:shadow-none backdrop-blur-xl rounded-3xl p-8 transition-colors duration-300">
+                <aside className="group relative overflow-hidden flex h-full flex-col justify-center bg-white border border-brand-navy/20 shadow-lg dark:bg-brand-navy/15 dark:border-brand-navy/40 dark:shadow-none backdrop-blur-xl rounded-3xl p-8 transition-colors duration-300">
                   <div className="flex flex-1 flex-col items-center justify-center text-center space-y-6">
-                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-slate-200 dark:ring-white/20 shadow-2xl">
+                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-brand-navy/25 dark:ring-brand-navy/60 shadow-2xl">
                       <Image
                         src="/selfie.png"
                         alt="Ibrahim Saifullah headshot"
@@ -148,14 +148,14 @@ export default function Home() {
                     </div>
                     <div className="space-y-4 w-full">
                       <div className="space-y-2">
-                        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Ibrahim Saifullah</h1>
-                        <p className="text-slate-600 dark:text-slate-200 text-lg">Lead Software Engineer @ Pushnami</p>
-                        <p className="text-slate-500 dark:text-slate-300 text-sm md:text-base">
+                        <h1 className="text-3xl md:text-4xl font-bold text-brand-dark dark:text-brand-light">Ibrahim Saifullah</h1>
+                        <p className="text-brand-dark/70 dark:text-brand-light/80 text-lg">Lead Software Engineer @ Pushnami</p>
+                        <p className="text-brand-dark/60 dark:text-brand-light/70 text-sm md:text-base">
                           I&apos;m a full stack software engineer with a passion for building products that are both functional and delightful.
                         </p>
                       </div>
                       <div className="flex justify-center">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 border border-slate-200 dark:bg-white/10 dark:border-white/20 px-3 py-1 text-sm text-slate-600 dark:text-slate-100 transition-colors duration-300">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-brand-navy/10 border border-brand-navy/20 dark:bg-brand-navy/25 dark:border-brand-navy/50 px-3 py-1 text-sm text-brand-dark/70 dark:text-brand-light/80 transition-colors duration-300">
                           <MapPinHouse className="h-4 w-4" aria-hidden /> Austin, TX
                         </span>
                       </div>
@@ -164,7 +164,7 @@ export default function Home() {
                           href="/Ibrahim Saifullah - Resume.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 dark:border-white/20 dark:bg-white/10 px-4 py-1.5 text-sm text-slate-600 dark:text-slate-100 transition hover:border-slate-400 hover:text-slate-900 dark:hover:border-white dark:hover:text-white"
+                          className="inline-flex items-center gap-2 rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/20 px-4 py-1.5 text-sm text-brand-dark/70 dark:text-brand-light/80 transition hover:border-brand-navy hover:text-brand-navy dark:hover:border-brand-light dark:hover:text-brand-light"
                         >
                           <FileText className="h-4 w-4" aria-hidden />
                           Resume
@@ -173,7 +173,7 @@ export default function Home() {
                           href="https://www.linkedin.com/in/ibrahimsaifullah"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center rounded-full border border-slate-200 bg-slate-100 dark:border-white/20 dark:bg-white/10 p-2 text-slate-600 dark:text-slate-100 transition hover:border-slate-400 hover:text-slate-900 dark:hover:border-white dark:hover:text-white"
+                          className="flex items-center justify-center rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/20 p-2 text-brand-dark/70 dark:text-brand-light/80 transition hover:border-brand-navy hover:text-brand-navy dark:hover:border-brand-light dark:hover:text-brand-light"
                           aria-label="LinkedIn"
                         >
                           <Linkedin className="h-4 w-4" />
@@ -182,7 +182,7 @@ export default function Home() {
                           href="https://github.com/ibrasaif1"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center rounded-full border border-slate-200 bg-slate-100 dark:border-white/20 dark:bg-white/10 p-2 text-slate-600 dark:text-slate-100 transition hover:border-slate-400 hover:text-slate-900 dark:hover:border-white dark:hover:text-white"
+                          className="flex items-center justify-center rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/20 p-2 text-brand-dark/70 dark:text-brand-light/80 transition hover:border-brand-navy hover:text-brand-navy dark:hover:border-brand-light dark:hover:text-brand-light"
                           aria-label="GitHub"
                         >
                           <Github className="h-4 w-4" />
@@ -190,26 +190,26 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="pointer-events-none absolute inset-0 rounded-3xl border border-slate-200 dark:border-white/20" />
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/40" />
                 </aside>
 
                 <div className="flex flex-col gap-6">
                   <div className="grid gap-6 lg:grid-rows-[auto_auto]">
-                    <article className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-white/20 dark:bg-white/10 backdrop-blur-xl p-10 text-slate-800 dark:text-slate-100 shadow-md dark:shadow-xl transition-colors duration-300">
-                      <div className="text-xs font-semibold uppercase tracking-[0.35em] text-blue-600 dark:text-blue-200/80">
-                        Featured Project
+                    <article className="group relative overflow-hidden rounded-3xl border border-brand-navy/20 bg-white dark:border-brand-navy/40 dark:bg-brand-navy/15 backdrop-blur-xl p-10 text-brand-dark dark:text-brand-light shadow-md dark:shadow-xl transition-colors duration-300">
+                      <div className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-navy dark:text-brand-light/60">
+                        Project
                       </div>
-                      <h3 className="mt-6 text-2xl font-semibold text-slate-900 dark:text-white">
+                      <h3 className="mt-6 text-2xl font-semibold text-brand-dark dark:text-brand-light">
                         <a
                           href="https://topspots.vercel.app"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 transition hover:text-blue-600 dark:hover:text-blue-200 cursor-pointer"
+                          className="inline-flex items-center gap-1 transition hover:text-brand-navy dark:hover:text-brand-light cursor-pointer"
                         >
                           TopSpots
                         </a>
                       </h3>
-                      <div className="mt-3 space-y-3 text-sm md:text-base text-slate-600 dark:text-slate-200">
+                      <div className="mt-3 space-y-3 text-sm md:text-base text-brand-dark/70 dark:text-brand-light/80">
                         <p></p>
                         <ul className="space-y-2">
                           <p>TopSpots is a project I&apos;m working on to show the best and most popular places in a city, based on 4.5+ stars and 1,000+ ratings on Google Maps. This web app enables users to:</p>
@@ -218,9 +218,9 @@ export default function Home() {
                           <li>• Locate the most lively parts of a city based on concentration of these places</li>
                         </ul>
                       </div>
-                      <div className="mt-6 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-200">
+                      <div className="mt-6 flex flex-wrap gap-2 text-xs text-brand-dark/70 dark:text-brand-light/80">
                         {['Next.js', 'TypeScript', 'UI/UX'].map((tag) => (
-                          <span key={tag} className="rounded-full border border-slate-200 bg-slate-50 dark:border-white/30 dark:bg-white/10 px-3 py-1 transition-colors duration-300">
+                          <span key={tag} className="rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/15 px-3 py-1 transition-colors duration-300">
                             {tag}
                           </span>
                         ))}
@@ -229,19 +229,19 @@ export default function Home() {
                         href="https://topspots.vercel.app"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-200 transition hover:text-blue-700 dark:hover:text-blue-100"
+                        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-navy dark:text-brand-light/80 transition hover:text-brand-navy/80 dark:hover:text-brand-light"
                       >
                         Open project <ExternalLink className="h-4 w-4" aria-hidden />
                       </a>
-                      <div className="pointer-events-none absolute inset-0 rounded-3xl border border-slate-200 dark:border-white/20" />
+                      <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/40" />
                     </article>
 
-                    <article className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-white/20 dark:bg-white/10 backdrop-blur-xl p-10 text-slate-800 dark:text-slate-100 shadow-md dark:shadow-xl transition-colors duration-300">
-                      <div className="text-xs font-semibold uppercase tracking-[0.35em] text-purple-600 dark:text-purple-200/80">
-                        Current Role
+                    <article className="group relative overflow-hidden rounded-3xl border border-brand-navy/20 bg-white dark:border-brand-navy/40 dark:bg-brand-navy/15 backdrop-blur-xl p-10 text-brand-dark dark:text-brand-light shadow-md dark:shadow-xl transition-colors duration-300">
+                      <div className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-navy dark:text-brand-light/60">
+                        Professional
                       </div>
-                      <h3 className="mt-6 text-2xl font-semibold text-slate-900 dark:text-white">Lead Software Engineer · Pushnami</h3>
-                      <div className="mt-3 space-y-3 text-sm md:text-base text-slate-600 dark:text-slate-200">
+                      <h3 className="mt-6 text-2xl font-semibold text-brand-dark dark:text-brand-light">Lead Software Engineer · Pushnami</h3>
+                      <div className="mt-3 space-y-3 text-sm md:text-base text-brand-dark/70 dark:text-brand-light/80">
                         <p>Pushnami is a startup where I work on the full stack:</p>
                         <ul className="space-y-2">
                           <li>• <strong>Frontend:</strong> React.js UI changes to improve UX</li>
@@ -249,14 +249,14 @@ export default function Home() {
                           <li>• <strong>Infrastructure:</strong> Deploy new microservices, build infrastructure with Terraform, or create CI/CD pipelines</li>
                         </ul>
                       </div>
-                      <div className="mt-6 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-200">
+                      <div className="mt-6 flex flex-wrap gap-2 text-xs text-brand-dark/70 dark:text-brand-light/80">
                         {['Node.js', 'Go', 'React.js', 'AWS', 'Terraform'].map((tag) => (
-                          <span key={tag} className="rounded-full border border-slate-200 bg-slate-50 dark:border-white/30 dark:bg-white/10 px-3 py-1 transition-colors duration-300">
+                          <span key={tag} className="rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/15 px-3 py-1 transition-colors duration-300">
                             {tag}
                           </span>
                         ))}
                       </div>
-                      <div className="pointer-events-none absolute inset-0 rounded-3xl border border-slate-200 dark:border-white/20" />
+                      <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/40" />
                     </article>
                   </div>
                 </div>
@@ -268,45 +268,48 @@ export default function Home() {
           <section className="w-screen shrink-0 h-full overflow-y-auto">
             <div className="min-h-full flex items-center justify-center px-6">
               <div className="text-center space-y-4">
-                <h2 className="text-4xl font-bold text-slate-900 dark:text-white">Blog</h2>
-                <p className="text-slate-400 text-lg">Coming soon...</p>
+                <h2 className="text-4xl font-bold text-brand-dark dark:text-brand-light">Blog</h2>
+                <p className="text-brand-dark/40 dark:text-brand-light/40 text-lg">Coming soon...</p>
               </div>
             </div>
           </section>
 
           {/* ── Cooking Panel ── */}
-          <section className="w-screen shrink-0 h-full overflow-y-auto">
-            <div className="px-6 pt-16 pb-20 md:px-16 xl:px-24">
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                <button
-                    className={pillButtonBase + (allAtStart ? pillButtonDisabled : pillButtonEnabled)}
-                    disabled={allAtStart}
-                    onClick={() => {
-                      carouselApis.current.forEach((api) => {
-                        if (api) api.scrollTo(0);
-                      });
-                    }}
-                  >
-                    <SkipBack className="h-4 w-4" />
-                  </button>
-                  <button
-                    className={pillButtonBase + (allAtEnd ? pillButtonDisabled : pillButtonEnabled)}
-                    disabled={allAtEnd}
-                    onClick={() => {
-                      carouselApis.current.forEach((api) => {
-                        if (api) api.scrollTo(api.scrollSnapList().length - 1);
-                      });
-                    }}
-                  >
-                    <SkipForward className="h-4 w-4" />
-                  </button>
+          <section className="w-screen shrink-0 h-full">
+            <div className="h-full flex flex-col px-6 pt-20 pb-6 md:pt-24 md:pb-8 lg:px-16 xl:px-24">
+              <div className="relative overflow-hidden flex-1 w-full max-w-7xl mx-auto bg-white border border-brand-navy/20 shadow-lg dark:bg-brand-navy/15 dark:border-brand-navy/40 dark:shadow-none backdrop-blur-xl rounded-3xl p-6 transition-colors duration-300 flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl font-bold text-brand-dark dark:text-brand-light">Cooking</span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      className={pillButtonBase + (allAtStart ? pillButtonDisabled : pillButtonEnabled)}
+                      disabled={allAtStart}
+                      onClick={() => {
+                        carouselApis.current.forEach((api) => {
+                          if (api) api.scrollTo(0);
+                        });
+                      }}
+                    >
+                      <SkipBack className="h-4 w-4" />
+                    </button>
+                    <button
+                      className={pillButtonBase + (allAtEnd ? pillButtonDisabled : pillButtonEnabled)}
+                      disabled={allAtEnd}
+                      onClick={() => {
+                        carouselApis.current.forEach((api) => {
+                          if (api) api.scrollTo(api.scrollSnapList().length - 1);
+                        });
+                      }}
+                    >
+                      <SkipForward className="h-4 w-4" />
+                    </button>
+                  </div>
                 </div>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="flex-1 min-h-0 grid grid-rows-2 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {cookingGalleries.map((gallery, index) => (
-                    <ImageCarousel 
-                      key={gallery.caption} 
-                      images={gallery.images} 
+                    <ImageCarousel
+                      key={gallery.caption}
+                      images={gallery.images}
                       caption={gallery.caption}
                       setApi={(api) => {
                         carouselApis.current[index] = api;
@@ -325,6 +328,7 @@ export default function Home() {
                     />
                   ))}
                 </div>
+                <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/40" />
               </div>
             </div>
           </section>

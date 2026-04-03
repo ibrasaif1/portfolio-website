@@ -17,6 +17,13 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        brand: {
+          dark: '#1e1f20',
+          navy: '#2b396d',
+          light: '#e4e4e4',
+        },
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
