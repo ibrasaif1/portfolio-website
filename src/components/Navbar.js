@@ -149,7 +149,7 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
           </button>
         </div>
 
-        <div className="relative flex items-center rounded-full bg-brand-navy/10 dark:bg-brand-navy/15 p-1 select-none transition-colors duration-300">
+        <div className="relative flex items-center rounded-full bg-brand-navy/10 dark:bg-brand-navy/80 p-1 select-none transition-colors duration-300">
           {/* ── Glass pill (purely visual) ── */}
           <div
             className={`absolute top-1 bottom-1 rounded-full pointer-events-none ${

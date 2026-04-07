@@ -89,8 +89,8 @@ export default function Home() {
   const pillButtonEnabled = " text-brand-dark dark:text-brand-light cursor-pointer"
     + " bg-gradient-to-b from-brand-navy/10 to-brand-navy/5 dark:from-brand-navy/40 dark:to-brand-navy/25"
     + " shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
-    + " border border-brand-navy/20 dark:border-brand-navy/50";
-  const pillButtonDisabled = " text-brand-dark/40 dark:text-brand-light/30 cursor-default border border-brand-navy/10 dark:border-brand-navy/25";
+    + " border border-brand-navy/20 dark:border-brand-navy/80";
+  const pillButtonDisabled = " text-brand-dark/40 dark:text-brand-light/30 cursor-default border border-brand-navy/10 dark:border-brand-navy/50";
 
   return (
     <div className="h-screen overflow-hidden relative bg-brand-light text-brand-dark dark:bg-brand-dark dark:text-brand-light transition-colors duration-300">
@@ -134,9 +134,9 @@ export default function Home() {
           <section className="w-screen shrink-0 h-full overflow-y-auto">
             <div className="min-h-full flex items-center px-6 py-20 md:py-24 lg:px-16 xl:px-24">
               <div className="mx-auto grid w-full max-w-7xl items-stretch gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1.95fr)]">
-                <aside className="group relative overflow-hidden flex h-full flex-col justify-center bg-white border border-brand-navy/20 shadow-lg dark:bg-brand-navy/15 dark:border-brand-navy/40 dark:shadow-none backdrop-blur-xl rounded-3xl p-8 transition-colors duration-300">
+                <aside className="group relative overflow-hidden flex h-full flex-col justify-center bg-white border border-brand-navy/20 shadow-lg dark:bg-brand-navy/80 dark:border-brand-navy/70 dark:shadow-none backdrop-blur-xl rounded-3xl p-8 transition-colors duration-300">
                   <div className="flex flex-1 flex-col items-center justify-center text-center space-y-6">
-                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-brand-navy/25 dark:ring-brand-navy/60 shadow-2xl">
+                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-brand-navy/25 dark:ring-brand-navy/90 shadow-2xl">
                       <Image
                         src="/selfie.png"
                         alt="Ibrahim Saifullah headshot"
@@ -155,7 +155,7 @@ export default function Home() {
                         </p>
                       </div>
                       <div className="flex justify-center">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-brand-navy/10 border border-brand-navy/20 dark:bg-brand-navy/25 dark:border-brand-navy/50 px-3 py-1 text-sm text-brand-dark/70 dark:text-brand-light/80 transition-colors duration-300">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-brand-navy/10 border border-brand-navy/20 dark:bg-brand-navy/70 dark:border-brand-navy/80 px-3 py-1 text-sm text-brand-dark/70 dark:text-brand-light/80 transition-colors duration-300">
                           <MapPinHouse className="h-4 w-4" aria-hidden /> Austin, TX
                         </span>
                       </div>
@@ -164,7 +164,7 @@ export default function Home() {
                           href="/Ibrahim Saifullah - Resume.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/20 px-4 py-1.5 text-sm text-brand-dark/70 dark:text-brand-light/80 transition hover:border-brand-navy hover:text-brand-navy dark:hover:border-brand-light dark:hover:text-brand-light"
+                          className="inline-flex items-center gap-2 rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/70 dark:bg-brand-navy/60 px-4 py-1.5 text-sm text-brand-dark/70 dark:text-brand-light/80 transition hover:border-brand-navy hover:text-brand-navy dark:hover:border-brand-light dark:hover:text-brand-light"
                         >
                           <FileText className="h-4 w-4" aria-hidden />
                           Resume
@@ -173,7 +173,7 @@ export default function Home() {
                           href="https://www.linkedin.com/in/ibrahimsaifullah"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/20 p-2 text-brand-dark/70 dark:text-brand-light/80 transition hover:border-brand-navy hover:text-brand-navy dark:hover:border-brand-light dark:hover:text-brand-light"
+                          className="flex items-center justify-center rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/70 dark:bg-brand-navy/60 p-2 text-brand-dark/70 dark:text-brand-light/80 transition hover:border-brand-navy hover:text-brand-navy dark:hover:border-brand-light dark:hover:text-brand-light"
                           aria-label="LinkedIn"
                         >
                           <Linkedin className="h-4 w-4" />
@@ -182,7 +182,7 @@ export default function Home() {
                           href="https://github.com/ibrasaif1"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/20 p-2 text-brand-dark/70 dark:text-brand-light/80 transition hover:border-brand-navy hover:text-brand-navy dark:hover:border-brand-light dark:hover:text-brand-light"
+                          className="flex items-center justify-center rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/70 dark:bg-brand-navy/60 p-2 text-brand-dark/70 dark:text-brand-light/80 transition hover:border-brand-navy hover:text-brand-navy dark:hover:border-brand-light dark:hover:text-brand-light"
                           aria-label="GitHub"
                         >
                           <Github className="h-4 w-4" />
@@ -190,12 +190,12 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/40" />
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/70" />
                 </aside>
 
                 <div className="flex flex-col gap-6">
                   <div className="grid gap-6 lg:grid-rows-[auto_auto]">
-                    <article className="group relative overflow-hidden rounded-3xl border border-brand-navy/20 bg-white dark:border-brand-navy/40 dark:bg-brand-navy/15 backdrop-blur-xl p-10 text-brand-dark dark:text-brand-light shadow-md dark:shadow-xl transition-colors duration-300">
+                    <article className="group relative overflow-hidden rounded-3xl border border-brand-navy/20 bg-white dark:border-brand-navy/70 dark:bg-brand-navy/80 backdrop-blur-xl p-10 text-brand-dark dark:text-brand-light shadow-md dark:shadow-xl transition-colors duration-300">
                       <div className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-navy dark:text-brand-light/60">
                         Project
                       </div>
@@ -220,7 +220,7 @@ export default function Home() {
                       </div>
                       <div className="mt-6 flex flex-wrap gap-2 text-xs text-brand-dark/70 dark:text-brand-light/80">
                         {['Next.js', 'TypeScript', 'UI/UX'].map((tag) => (
-                          <span key={tag} className="rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/15 px-3 py-1 transition-colors duration-300">
+                          <span key={tag} className="rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/70 dark:bg-brand-navy/80 px-3 py-1 transition-colors duration-300">
                             {tag}
                           </span>
                         ))}
@@ -233,10 +233,10 @@ export default function Home() {
                       >
                         Open project <ExternalLink className="h-4 w-4" aria-hidden />
                       </a>
-                      <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/40" />
+                      <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/70" />
                     </article>
 
-                    <article className="group relative overflow-hidden rounded-3xl border border-brand-navy/20 bg-white dark:border-brand-navy/40 dark:bg-brand-navy/15 backdrop-blur-xl p-10 text-brand-dark dark:text-brand-light shadow-md dark:shadow-xl transition-colors duration-300">
+                    <article className="group relative overflow-hidden rounded-3xl border border-brand-navy/20 bg-white dark:border-brand-navy/70 dark:bg-brand-navy/80 backdrop-blur-xl p-10 text-brand-dark dark:text-brand-light shadow-md dark:shadow-xl transition-colors duration-300">
                       <div className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-navy dark:text-brand-light/60">
                         Professional
                       </div>
@@ -251,12 +251,12 @@ export default function Home() {
                       </div>
                       <div className="mt-6 flex flex-wrap gap-2 text-xs text-brand-dark/70 dark:text-brand-light/80">
                         {['Node.js', 'Go', 'React.js', 'AWS', 'Terraform'].map((tag) => (
-                          <span key={tag} className="rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/40 dark:bg-brand-navy/15 px-3 py-1 transition-colors duration-300">
+                          <span key={tag} className="rounded-full border border-brand-navy/20 bg-brand-navy/5 dark:border-brand-navy/70 dark:bg-brand-navy/80 px-3 py-1 transition-colors duration-300">
                             {tag}
                           </span>
                         ))}
                       </div>
-                      <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/40" />
+                      <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/70" />
                     </article>
                   </div>
                 </div>
@@ -277,7 +277,7 @@ export default function Home() {
           {/* ── Cooking Panel ── */}
           <section className="w-screen shrink-0 h-full">
             <div className="h-full flex flex-col px-6 pt-20 pb-6 md:pt-24 md:pb-8 lg:px-16 xl:px-24">
-              <div className="relative overflow-hidden flex-1 w-full max-w-7xl mx-auto bg-white border border-brand-navy/20 shadow-lg dark:bg-brand-navy/15 dark:border-brand-navy/40 dark:shadow-none backdrop-blur-xl rounded-3xl p-6 transition-colors duration-300 flex flex-col">
+              <div className="relative overflow-hidden flex-1 w-full max-w-7xl mx-auto bg-white border border-brand-navy/20 shadow-lg dark:bg-brand-navy/80 dark:border-brand-navy/70 dark:shadow-none backdrop-blur-xl rounded-3xl p-6 transition-colors duration-300 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-2xl font-bold text-brand-dark dark:text-brand-light">Cooking</span>
                   <div className="flex items-center gap-2">
@@ -328,7 +328,7 @@ export default function Home() {
                     />
                   ))}
                 </div>
-                <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/40" />
+                <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-navy/70" />
               </div>
             </div>
           </section>
