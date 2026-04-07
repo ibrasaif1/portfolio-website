@@ -119,22 +119,22 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
   // Pill style varies by theme
   const pillBackground = isDark
     ? (isDragging
-        ? 'linear-gradient(180deg, rgba(43,57,109,0.55) 0%, rgba(43,57,109,0.35) 100%)'
-        : 'linear-gradient(180deg, rgba(43,57,109,0.4) 0%, rgba(43,57,109,0.25) 100%)')
+        ? 'linear-gradient(180deg, rgba(228,228,228,0.14) 0%, rgba(228,228,228,0.08) 100%)'
+        : 'linear-gradient(180deg, rgba(228,228,228,0.1) 0%, rgba(228,228,228,0.06) 100%)')
     : (isDragging
         ? 'linear-gradient(180deg, rgba(43,57,109,0.18) 0%, rgba(43,57,109,0.1) 100%)'
         : 'linear-gradient(180deg, rgba(43,57,109,0.1) 0%, rgba(43,57,109,0.05) 100%)');
 
   const pillShadow = isDark
     ? (isDragging
-        ? '0 0 20px rgba(43,57,109,0.4), inset 0 1px 0 rgba(255,255,255,0.1)'
-        : 'inset 0 1px 0 rgba(255,255,255,0.06)')
+        ? '0 0 16px rgba(228,228,228,0.08), inset 0 1px 0 rgba(255,255,255,0.12)'
+        : 'inset 0 1px 0 rgba(255,255,255,0.08)')
     : (isDragging
         ? '0 0 20px rgba(43,57,109,0.12), inset 0 1px 0 rgba(255,255,255,0.8)'
         : 'inset 0 1px 0 rgba(255,255,255,0.6)');
 
   const pillBorder = isDark
-    ? '1px solid rgba(43,57,109,0.55)'
+    ? '1px solid rgba(228,228,228,0.18)'
     : '1px solid rgba(43,57,109,0.15)';
 
   return (
