@@ -11,21 +11,22 @@ const ImageCarousel = ({ images, caption, setApi }) => {
     const showControls = images.length > 1;
 
     return (
-        <div className="carousel-container relative rounded-xl border border-brand-navy/30 bg-white/90 backdrop-blur-lg shadow-2xl flex flex-col h-full">
-            <div className="flex-1 min-h-0 overflow-hidden relative">
-                <ShadcnCarousel setApi={setApi}>
-                    <CarouselContent>
+        <div className="carousel-container relative rounded-xl border border-brand-navy/30 bg-white shadow-lg flex flex-col overflow-hidden">
+            <div className="relative w-full aspect-[3/4] overflow-hidden">
+                <ShadcnCarousel setApi={setApi} className="h-full">
+                    <CarouselContent className="h-full">
                         {images.map((image, index) => (
-                            <CarouselItem key={index} className="relative">
-                                <Image
-                                    src={image.src}
-                                    alt={image.alt}
-                                    width={500}
-                                    height={500}
-                                    className="w-full h-full object-cover"
-                                    priority={index === 0}
-                                    loading={index === 0 ? undefined : "eager"}
-                                />
+                            <CarouselItem key={index} className="relative h-full">
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={image.src}
+                                        alt={image.alt}
+                                        fill
+                                        className="object-cover"
+                                        priority={index === 0}
+                                        loading={index === 0 ? undefined : "eager"}
+                                    />
+                                </div>
                             </CarouselItem>
                         ))}
                     </CarouselContent>

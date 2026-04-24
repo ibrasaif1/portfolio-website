@@ -305,28 +305,30 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-                <div className="flex-1 min-h-0 grid grid-rows-2 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  {cookingGalleries.map((gallery, index) => (
-                    <ImageCarousel
-                      key={gallery.caption}
-                      images={gallery.images}
-                      caption={gallery.caption}
-                      setApi={(api) => {
-                        carouselApis.current[index] = api;
-                        if (api) {
-                          const updatePositions = () => {
-                            setSlidePositions((prev) => {
-                              const next = [...prev];
-                              next[index] = api.selectedScrollSnap();
-                              return next;
-                            });
-                          };
-                          updatePositions();
-                          api.on('select', updatePositions);
-                        }
-                      }}
-                    />
-                  ))}
+                <div className="flex-1 min-h-0 overflow-y-auto pr-1">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+                    {cookingGalleries.map((gallery, index) => (
+                      <ImageCarousel
+                        key={gallery.caption}
+                        images={gallery.images}
+                        caption={gallery.caption}
+                        setApi={(api) => {
+                          carouselApis.current[index] = api;
+                          if (api) {
+                            const updatePositions = () => {
+                              setSlidePositions((prev) => {
+                                const next = [...prev];
+                                next[index] = api.selectedScrollSnap();
+                                return next;
+                              });
+                            };
+                            updatePositions();
+                            api.on('select', updatePositions);
+                          }
+                        }}
+                      />
+                    ))}
+                  </div>
                 </div>
                 <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-navy/20 dark:border-brand-light/10" />
               </div>
