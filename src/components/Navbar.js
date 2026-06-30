@@ -3,10 +3,8 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { Sun, Moon } from 'lucide-react';
-import { useTheme } from './ThemeProvider';
 
-const sections = ['Home', 'Blog', 'Cooking'];
+const sections = ['Home', 'Blog'];
 
 const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
   const [indicatorPos, setIndicatorPos] = useState({ left: 0, width: 0 });
@@ -14,7 +12,6 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
   const [isDragging, setIsDragging] = useState(false);
   const buttonsRef = useRef([]);
   const dragLeftRef = useRef(0);
-  const { theme, toggleTheme } = useTheme();
 
   const getButtonMeta = useCallback(
     () =>
@@ -26,7 +23,6 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
     []
   );
 
-  // Sync indicator position to the active tab when not dragging
   useEffect(() => {
     if (isDragging) return;
     const sync = () => {
@@ -41,7 +37,6 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
     return () => window.removeEventListener('resize', sync);
   }, [activeSection, isDragging, mounted]);
 
-  // Which tab label should light up (follows indicator during drag)
   const getVisualIndex = () => {
     if (!isDragging) return activeSection;
     const meta = getButtonMeta();
@@ -59,9 +54,7 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
   };
 
   const visualIndex = getVisualIndex();
-  const isDark = theme === 'dark';
 
-  // ── Drag handling — initiated from the active tab's button ──
   const handlePointerDown = (e, index) => {
     if (index !== activeSection) return;
 
@@ -116,41 +109,29 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
     window.addEventListener('pointerup', onUp);
   };
 
-  // Pill style varies by theme
-  const pillBackground = isDark
-    ? (isDragging
-        ? 'linear-gradient(180deg, rgba(228,228,228,0.14) 0%, rgba(228,228,228,0.08) 100%)'
-        : 'linear-gradient(180deg, rgba(228,228,228,0.1) 0%, rgba(228,228,228,0.06) 100%)')
-    : (isDragging
-        ? 'linear-gradient(180deg, rgba(43,57,109,0.18) 0%, rgba(43,57,109,0.1) 100%)'
-        : 'linear-gradient(180deg, rgba(43,57,109,0.1) 0%, rgba(43,57,109,0.05) 100%)');
+  const pillBackground = isDragging
+    ? 'linear-gradient(180deg, rgba(43,57,109,0.18) 0%, rgba(43,57,109,0.1) 100%)'
+    : 'linear-gradient(180deg, rgba(43,57,109,0.1) 0%, rgba(43,57,109,0.05) 100%)';
 
-  const pillShadow = isDark
-    ? (isDragging
-        ? '0 0 16px rgba(228,228,228,0.08), inset 0 1px 0 rgba(255,255,255,0.12)'
-        : 'inset 0 1px 0 rgba(255,255,255,0.08)')
-    : (isDragging
-        ? '0 0 20px rgba(43,57,109,0.12), inset 0 1px 0 rgba(255,255,255,0.8)'
-        : 'inset 0 1px 0 rgba(255,255,255,0.6)');
+  const pillShadow = isDragging
+    ? '0 0 20px rgba(43,57,109,0.12), inset 0 1px 0 rgba(255,255,255,0.8)'
+    : 'inset 0 1px 0 rgba(255,255,255,0.6)';
 
-  const pillBorder = isDark
-    ? '1px solid rgba(228,228,228,0.18)'
-    : '1px solid rgba(43,57,109,0.15)';
+  const pillBorder = '1px solid rgba(43,57,109,0.15)';
 
   return (
-    <nav className="absolute top-0 left-0 right-0 bg-brand-light/80 dark:bg-brand-dark/80 backdrop-blur-xl z-50 transition-colors duration-300">
+    <nav className="absolute top-0 left-0 right-0 bg-brand-light/80 backdrop-blur-xl z-50">
       <div className="mx-auto w-full max-w-7xl py-3 flex justify-between items-center">
         <div className="flex-1">
           <button
             onClick={() => onSectionChange(0)}
-            className="text-2xl font-bold text-brand-dark dark:text-brand-light cursor-pointer"
+            className="text-2xl font-bold text-brand-dark cursor-pointer"
           >
             Ibrahim
           </button>
         </div>
 
-        <div className="relative flex items-center rounded-full bg-brand-navy/10 dark:bg-brand-navy/80 p-1 select-none transition-colors duration-300">
-          {/* ── Glass pill (purely visual) ── */}
+        <div className="relative flex items-center rounded-full bg-brand-navy/10 p-1 select-none">
           <div
             className={`absolute top-1 bottom-1 rounded-full pointer-events-none ${
               mounted ? 'opacity-100' : 'opacity-0'
@@ -168,7 +149,6 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
             }}
           />
 
-          {/* ── Tab labels (handle drag + click) ── */}
           {sections.map((section, index) => (
             <button
               key={section}
@@ -177,8 +157,8 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
               onClick={() => onSectionChange(index)}
               className={`relative z-10 px-5 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
                 visualIndex === index
-                  ? 'text-brand-dark dark:text-brand-light'
-                  : 'text-brand-dark/40 hover:text-brand-dark/70 dark:text-brand-light/40 dark:hover:text-brand-light/80'
+                  ? 'text-brand-dark'
+                  : 'text-brand-dark/40 hover:text-brand-dark/70'
               } ${
                 index === activeSection
                   ? isDragging
@@ -193,19 +173,12 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
           ))}
         </div>
 
-        <div className="flex-1 flex items-center justify-end gap-3 text-brand-dark/50 dark:text-brand-light/70">
-          <button
-            onClick={toggleTheme}
-            className="flex items-center justify-center rounded-full p-2 hover:text-brand-dark dark:hover:text-brand-light transition cursor-pointer"
-            aria-label="Toggle theme"
-          >
-            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
+        <div className="flex-1 flex items-center justify-end gap-3 text-brand-dark/50">
           <a
             href="/Ibrahim Saifullah - Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm hover:text-brand-dark dark:hover:text-brand-light transition hidden sm:block"
+            className="text-sm hover:text-brand-dark transition hidden sm:block"
           >
             Resume
           </a>
@@ -213,7 +186,7 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
             href="https://www.linkedin.com/in/ibrahimsaifullah"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-brand-dark dark:hover:text-brand-light transition"
+            className="hover:text-brand-dark transition"
             aria-label="LinkedIn"
           >
             <FontAwesomeIcon icon={faLinkedin} size="lg" />
@@ -222,7 +195,7 @@ const Navbar = ({ activeSection, onSectionChange, onDragProgress }) => {
             href="https://github.com/ibrasaif1"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-brand-dark dark:hover:text-brand-light transition"
+            className="hover:text-brand-dark transition"
             aria-label="GitHub"
           >
             <FontAwesomeIcon icon={faGithub} size="lg" />
