@@ -7,5 +7,16 @@ html {
 }
 
 body {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle outline keeps image edges crisp against any surface */
+.image-outline {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooths the proximity background as the cursor moves in and away */
+[data-lift] {
+  transition: background-color 150ms ease-out;
 }
