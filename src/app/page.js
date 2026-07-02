@@ -77,12 +77,15 @@ export default function Home() {
         <section>
           <p className="text-brand-dark/60 text-pretty">
             I&apos;m a full stack software engineer who pairs fast backends with
-            intuitive frontends to create a joyful user experience.
-            <br />I find myself most passionate when doing design work.
+            intuitive frontends to create a joyful user experience. I find
+            myself most passionate when doing design work.
           </p>
         </section>
 
-        <section className="space-y-1">
+        <section className="space-y-1 !mt-4">
+          <h2 className="text-base font-medium text-brand-dark/70 pb-0.5">
+            Personal Project
+          </h2>
           <a
             data-lift
             href="https://topspots.fyi"
@@ -107,7 +110,10 @@ export default function Home() {
           </ul>
         </section>
 
-        <section className="space-y-1">
+        <section className="space-y-1 !mt-4">
+          <h2 className="text-base font-medium text-brand-dark/70 pb-0.5">
+            Work Experience
+          </h2>
           <p className="text-lg sm:text-xl font-medium">
             Lead Software Engineer{" "}
             <AtSign
