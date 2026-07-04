@@ -83,9 +83,6 @@ export default function Home() {
         </section>
 
         <section className="space-y-1 !mt-4">
-          <h2 className="text-base font-medium text-brand-dark/70 pb-0.5">
-            Personal Project
-          </h2>
           <a
             data-lift
             href="https://topspots.fyi"
@@ -111,9 +108,6 @@ export default function Home() {
         </section>
 
         <section className="space-y-1 !mt-4">
-          <h2 className="text-base font-medium text-brand-dark/70 pb-0.5">
-            Work Experience
-          </h2>
           <p className="text-lg sm:text-xl font-medium">
             Lead Software Engineer{" "}
             <AtSign
