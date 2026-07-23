@@ -126,7 +126,7 @@ export default function Home() {
             </a>
           </p>
           <p className="text-brand-dark/60 text-pretty">
-            Working across the full stack — React frontends, Node.js and Go
+            Working across the full stack: React frontends, Node.js and Go
             services, and infrastructure with AWS and Terraform.
           </p>
         </section>
